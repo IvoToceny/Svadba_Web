@@ -1,0 +1,23 @@
+@inherits LocalizedComponentBase
+
+<div class="lang-switcher" role="group" aria-label="Jazyk / Language">
+    @foreach (var (code, label) in _langs)
+    {
+        var isActive = Loc.CurrentLanguage == code;
+        <button type="button"
+                class="lang-btn @(isActive ? "active" : null)"
+                aria-pressed="@isActive"
+                @onclick="() => Loc.SetLanguageAsync(code)">
+            @label
+        </button>
+    }
+</div>
+
+@code {
+    private readonly (Language Code, string Label)[] _langs =
+    {
+        (Language.Sk, "SK"),
+        (Language.Cz, "CZ"),
+        (Language.En, "EN"),
+    };
+}

@@ -1,0 +1,12 @@
+<div class="info-card">
+    <h3>@Item.Title</h3>
+    <p>@Item.Text</p>
+    @if (!string.IsNullOrEmpty(Item.LinkUrl) && !string.IsNullOrEmpty(Item.LinkLabel))
+    {
+        <a class="info-link" href="@Item.LinkUrl" target="_blank" rel="noopener">@Item.LinkLabel <span aria-hidden="true">→</span></a>
+    }
+</div>
+
+@code {
+    [Parameter, EditorRequired] public InfoItem Item { get; set; } = default!;
+}

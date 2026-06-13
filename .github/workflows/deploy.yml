@@ -1,0 +1,65 @@
+# Nasadenie svadobnej stránky na GitHub Pages (zadarmo, statický hosting).
+#
+# AKO TO ZAPNÚŤ (raz):
+#   1. Vytvor GitHub repo (napr. Svadba_Web) a pushni doň tento priečinok.
+#   2. V repo: Settings -> Pages -> Build and deployment -> Source = "GitHub Actions".
+#   3. Hotovo. Po každom pushi do vetvy main sa stránka automaticky zostaví a nasadí
+#      na https://<tvoj-login>.github.io/<nazov-repa>/
+#
+# Kým repo neexistuje, tento súbor nič nerobí — stránka beží lokálne cez `dotnet watch`.
+
+name: Deploy to GitHub Pages
+
+on:
+  # Automatické nasadenie po pushi je ZATIAĽ VYPNUTÉ, aby sa stránka nezverejnila.
+  # Až budeš chcieť stránku spustiť naživo, odkomentuj nasledujúce dva riadky
+  # (a v repo zapni Settings -> Pages -> Source = "GitHub Actions"):
+  # push:
+  #   branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Publish
+        run: dotnet publish SvadbaWeb/SvadbaWeb.csproj -c Release -o build
+
+      - name: Fix base href + SPA fallback
+        run: |
+          REPO="${{ github.event.repository.name }}"
+          sed -i "s|<base href=\"/\" />|<base href=\"/$REPO/\" />|g" build/wwwroot/index.html
+          cp build/wwwroot/index.html build/wwwroot/404.html
+          touch build/wwwroot/.nojekyll
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/wwwroot
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,69 @@
+using SvadbaWeb.Config;
+
+namespace SvadbaWeb.Localization;
+
+/// <summary>Slovenské texty stránky. Tu meň slovenský obsah.</summary>
+public static class ContentSk
+{
+    public static readonly SiteContent Value = new()
+    {
+        CoupleNames = "Denisa & Ivo",
+        Date = "26. septembra 2026",
+        VenueShort = "Lysovický rybník · Vyškov",
+        Poem = "Medzi šumením stromov a hladinou rybníka,\n" +
+               "v čase, keď sa príroda farbí do zlata,\n" +
+               "si sľúbime lásku na celý život.\n" +
+               "Príďte ten okamih zdieľať s nami.",
+        Weekday = "Sobota",
+        Month = "September",
+        RsvpButton = "Vyplniť dotazník",
+
+        InviteHeading = "Milá rodina, drahí priatelia",
+        InviteParagraphs = new[]
+        {
+            "S láskou a radosťou vás pozývame na našu svadbu, ktorá sa uskutoční 26. septembra 2026 na Lysovickom rybníku neďaleko Vyškova.",
+            "Veľmi nás poteší, ak sa tam všetci uvidíme a budeme môcť tento výnimočný deň zdieľať spolu s vami. Aby sme všetko doladili do posledného detailu a zabezpečili čo najväčšie pohodlie, pripravili sme pre vás nasledujúce informácie.",
+        },
+
+        InfoHeading = "Dôležité informácie",
+        InfoCards = new[]
+        {
+            new InfoItem("Obrad",
+                "Obrad sa bude konať v sobotu 26. 9. 2026 o 13:00. Ak plánujete prísť až v sobotu, prosíme, dostavte sa do 12:00."),
+            new InfoItem("Miesto",
+                "Lysovický rybník neďaleko Vyškova. Areál máme rezervovaný od piatku do nedele rána.",
+                "Zobraziť na mape", SiteConfig.VenueMapUrl),
+            new InfoItem("Parkovanie",
+                "Parkovanie je priamo v areáli a je bezplatné."),
+            new InfoItem("Ubytovanie",
+                "Ubytovanie odporúčame v meste Vyškov (~10 km od miesta konania). Náš tip je hotel Allvet.",
+                "Hotel Allvet", SiteConfig.HotelMapUrl),
+            new InfoItem("Fotenie počas obradu",
+                "Prosíme vás o láskavé zdržanie sa fotenia počas obradu. Ďakujeme."),
+            new InfoItem("Program",
+                "Bližšie informácie k programu vám prinesieme, keď príde ten správny čas."),
+        },
+
+        PaletteTitle = "Farebná paleta",
+        PaletteText = "Budeme veľmi radi, ak svojím oblečením podporíte našu farebnú paletu.",
+
+        RsvpHeading = "Potvrďte svoju účasť",
+        RsvpText = "Aby sme mohli všetko doladiť do posledného detailu, prosíme vás o vyplnenie krátkeho dotazníka. Nájdete v ňom otázky o vašej účasti, preferenciách v jedle a ďalšie.",
+        RsvpDeadline = "Odpovede prosíme zaslať ideálne do 13. 5. 2026.",
+
+        ContactHeading = "Máte otázky?",
+        ContactText = "Ak máte akékoľvek otázky, napíšte nám cez formulár nižšie alebo nás kontaktujte priamo.",
+        FormName = "Meno",
+        FormEmail = "E-mail",
+        FormMessage = "Správa",
+        FormSend = "Odoslať",
+        FormSending = "Odosielam…",
+        FormSuccess = "Ďakujeme! Vaša správa bola odoslaná.",
+        FormError = "Niečo sa pokazilo. Skúste to prosím znova alebo nás kontaktujte priamo.",
+        ContactOr = "alebo nás kontaktujte priamo",
+        PhoneLabel = "Telefón",
+        MessengerLabel = "Messenger",
+
+        FooterSignature = "S láskou, Deni & Ivo",
+    };
+}

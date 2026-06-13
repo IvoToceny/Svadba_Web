@@ -1,0 +1,19 @@
+@inherits LayoutComponentBase
+@inject LocalizationService Loc
+
+<LanguageSwitcher />
+
+<div class="page">
+    @Body
+</div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Načítaj jazyk uložený z minulej návštevy (inak ostane slovenčina).
+            await Loc.InitializeAsync();
+        }
+    }
+}

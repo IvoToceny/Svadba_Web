@@ -1,0 +1,9 @@
+<div class="palette">
+    @foreach (var (hex, name) in SiteConfig.Palette)
+    {
+        <div class="swatch" title="@name @hex">
+            <span class="swatch-color" style="background-color:@hex"></span>
+            <span class="swatch-hex">@hex</span>
+        </div>
+    }
+</div>

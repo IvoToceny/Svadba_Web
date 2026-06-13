@@ -1,0 +1,81 @@
+@inherits LocalizedComponentBase
+@inject HttpClient Http
+
+<form class="contact-form" @onsubmit="SubmitAsync" @onsubmit:preventDefault>
+    <div class="form-row">
+        <label class="field">
+            <span>@C.FormName</span>
+            <input type="text" @bind="_name" @bind:event="oninput" required autocomplete="name" />
+        </label>
+        <label class="field">
+            <span>@C.FormEmail</span>
+            <input type="email" @bind="_email" @bind:event="oninput" required autocomplete="email" />
+        </label>
+    </div>
+    <label class="field">
+        <span>@C.FormMessage</span>
+        <textarea rows="4" @bind="_message" @bind:event="oninput" required></textarea>
+    </label>
+
+    <button type="submit" class="btn btn-primary" disabled="@(_state == FormState.Sending)">
+        @(_state == FormState.Sending ? C.FormSending : C.FormSend)
+    </button>
+
+    @if (_state == FormState.Success)
+    {
+        <p class="form-msg success">@C.FormSuccess</p>
+    }
+    else if (_state == FormState.Error)
+    {
+        <p class="form-msg error">@C.FormError</p>
+    }
+
+    @if (!SiteConfig.ContactFormConfigured)
+    {
+        <p class="form-note">⚙️ Formulár ešte nemá nastavený Web3Forms kľúč — doplň ho v <code>SiteConfig.Web3FormsAccessKey</code>.</p>
+    }
+</form>
+
+@code {
+    private string _name = "";
+    private string _email = "";
+    private string _message = "";
+    private FormState _state = FormState.Idle;
+
+    private enum FormState { Idle, Sending, Success, Error }
+
+    private async Task SubmitAsync()
+    {
+        if (_state == FormState.Sending) return;
+        _state = FormState.Sending;
+
+        try
+        {
+            var payload = new
+            {
+                access_key = SiteConfig.Web3FormsAccessKey,
+                subject = "Nová správa zo svadobnej stránky (Deni & Ivo)",
+                from_name = "Svadobná stránka",
+                name = _name,
+                email = _email,
+                message = _message,
+            };
+
+            var response = await Http.PostAsJsonAsync("https://api.web3forms.com/submit", payload);
+
+            if (response.IsSuccessStatusCode)
+            {
+                _state = FormState.Success;
+                _name = _email = _message = "";
+            }
+            else
+            {
+                _state = FormState.Error;
+            }
+        }
+        catch
+        {
+            _state = FormState.Error;
+        }
+    }
+}
