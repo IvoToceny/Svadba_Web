@@ -1,0 +1,26 @@
+@inherits LocalizedComponentBase
+
+<header class="navbar">
+    <div class="navbar-inner">
+        <a class="navbar-brand" href="">Deni &amp; Ivo</a>
+
+        <button class="navbar-toggle" type="button" @onclick="Toggle"
+                aria-label="Menu" aria-expanded="@_open">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="navbar-links @(_open ? "open" : null)">
+            <NavLink class="navbar-link" href="" Match="NavLinkMatch.All" @onclick="Close">@C.NavHome</NavLink>
+            <NavLink class="navbar-link" href="aktuality" @onclick="Close">@C.NavNews</NavLink>
+            <NavLink class="navbar-link" href="program" @onclick="Close">@C.ProgramHeading</NavLink>
+            <NavLink class="navbar-link" href="menu" @onclick="Close">@C.MenuNavLabel</NavLink>
+            <span class="navbar-langs"><LanguageSwitcher Inline="true" /></span>
+        </nav>
+    </div>
+</header>
+
+@code {
+    private bool _open;
+    private void Toggle() => _open = !_open;
+    private void Close() => _open = false;
+}

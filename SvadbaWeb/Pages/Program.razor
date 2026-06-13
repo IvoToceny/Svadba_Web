@@ -1,0 +1,31 @@
+@page "/program"
+@inherits LocalizedComponentBase
+
+<PageTitle>@C.ProgramHeading · Denisa & Ivo</PageTitle>
+
+<section class="section section-program">
+    <div class="container narrow">
+        <h1 class="section-title">@C.ProgramHeading</h1>
+        <p class="lead center program-intro">@C.ProgramIntro</p>
+
+        <div class="program-days">
+            @foreach (var day in C.ProgramDays)
+            {
+                <section class="program-day">
+                    <h2 class="program-day-title">@day.Title</h2>
+                    <ol class="program-timeline">
+                        @foreach (var entry in day.Entries)
+                        {
+                            <li class="program-entry">
+                                <span class="program-time">@entry.Time</span>
+                                <span class="program-text">@entry.Text</span>
+                            </li>
+                        }
+                    </ol>
+                </section>
+            }
+        </div>
+
+        <p class="program-note">@C.ProgramNote</p>
+    </div>
+</section>

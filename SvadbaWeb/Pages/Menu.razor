@@ -1,13 +1,10 @@
 @page "/menu"
 @inherits LocalizedComponentBase
-@inject NavigationManager Nav
 
 <PageTitle>@C.MenuHeading · Denisa & Ivo</PageTitle>
 
 <section class="section section-menu">
     <div class="container narrow">
-        <a class="menu-back" href="@Nav.BaseUri"><span aria-hidden="true">←</span> @C.MenuBackLabel</a>
-
         <h1 class="section-title menu-title">@C.MenuHeading</h1>
         <p class="lead center menu-intro">@C.MenuIntro</p>
 

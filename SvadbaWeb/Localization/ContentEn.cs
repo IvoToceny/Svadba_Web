@@ -66,7 +66,33 @@ public static class ContentEn
         PhoneLabel = "Phone",
         MessengerLabel = "Messenger",
 
+        NavHome = "Home",
+        NavNews = "News",
+
         NewsHeading = "Latest updates",
+        NewsEmpty = "No announcements yet. We'll add news here soon.",
+
+        ProgramHeading = "Programme",
+        ProgramIntro = "How our wedding weekend will unfold. Times are still to be confirmed.",
+        ProgramDays = new[]
+        {
+            new ProgramDay("Friday 25 Sep", new[]
+            {
+                new ProgramEntry("Evening", "Evening get-together"),
+            }),
+            new ProgramDay("Saturday 26 Sep — the big day", new[]
+            {
+                new ProgramEntry("by 12:00", "Guests arrive by 12:00 at the latest"),
+                new ProgramEntry("13:00", "Ceremony"),
+                new ProgramEntry("14:00", "Newlyweds' photoshoot & programme for guests"),
+                new ProgramEntry("15:30", "Festive meal"),
+            }),
+            new ProgramDay("Sunday 27 Sep", new[]
+            {
+                new ProgramEntry("9:00", "Farewell and departure"),
+            }),
+        },
+        ProgramNote = "We'll fine-tune the rest of the programme — more details to come.",
 
         MenuNavLabel = "Wedding menu",
         MenuHeading = "Wedding menu",
@@ -119,7 +145,6 @@ public static class ContentEn
             }),
         },
         MenuDietaryNote = "On request we'll prepare a vegetarian variant — meat replaced with halloumi, soft cheese or tofu. We'll also accommodate other dietary needs, just let us know.",
-        MenuBackLabel = "Back to home",
 
         FooterSignature = "With love, Deni & Ivo",
     };

@@ -12,6 +12,12 @@ public record InfoItem(
 /// <summary>Jeden chod svadobného menu (nadpis + zoznam jedál).</summary>
 public record MenuCourse(string Title, string[] Items);
 
+/// <summary>Jedna položka programu (čas + popis).</summary>
+public record ProgramEntry(string Time, string Text);
+
+/// <summary>Jeden deň programu (nadpis dňa + položky).</summary>
+public record ProgramDay(string Title, ProgramEntry[] Entries);
+
 /// <summary>
 /// Všetky texty stránky pre jeden jazyk. Konkrétne preklady sú v
 /// ContentSk.cs / ContentCz.cs / ContentEn.cs — tam meň texty.
@@ -58,16 +64,27 @@ public record SiteContent
     public required string PhoneLabel { get; init; }
     public required string MessengerLabel { get; init; }
 
-    // ----- Aktuality / Oznámenia -----
-    public required string NewsHeading { get; init; }
+    // ----- Navigácia (top nav bar) -----
+    public required string NavHome { get; init; }
+    public required string NavNews { get; init; }
+    // (odkaz na program používa ProgramHeading, odkaz na menu používa MenuNavLabel)
 
-    // ----- Svadobné menu (samostatná stránka /menu) -----
-    public required string MenuNavLabel { get; init; }   // text odkazu na menu
+    // ----- Aktuality / Oznámenia (stránka /aktuality) -----
+    public required string NewsHeading { get; init; }
+    public required string NewsEmpty { get; init; }   // text, keď nie sú žiadne aktuality
+
+    // ----- Program (stránka /program) -----
+    public required string ProgramHeading { get; init; }
+    public required string ProgramIntro { get; init; }
+    public required ProgramDay[] ProgramDays { get; init; }
+    public required string ProgramNote { get; init; }
+
+    // ----- Svadobné menu (stránka /menu) -----
+    public required string MenuNavLabel { get; init; }   // text tabu/odkazu na menu
     public required string MenuHeading { get; init; }
     public required string MenuIntro { get; init; }
     public required MenuCourse[] MenuCourses { get; init; }
     public required string MenuDietaryNote { get; init; }
-    public required string MenuBackLabel { get; init; }
 
     // ----- Pätička -----
     public required string FooterSignature { get; init; }

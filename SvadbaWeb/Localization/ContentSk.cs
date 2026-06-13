@@ -66,7 +66,33 @@ public static class ContentSk
         PhoneLabel = "Telefón",
         MessengerLabel = "Messenger",
 
+        NavHome = "Domov",
+        NavNews = "Aktuality",
+
         NewsHeading = "Aktuality",
+        NewsEmpty = "Zatiaľ tu nie sú žiadne aktuality. Čoskoro sem pridáme novinky.",
+
+        ProgramHeading = "Program",
+        ProgramIntro = "Ako bude prebiehať náš svadobný víkend. Časy ešte spresníme.",
+        ProgramDays = new[]
+        {
+            new ProgramDay("Piatok 25. 9.", new[]
+            {
+                new ProgramEntry("Večer", "Večerné posedenie"),
+            }),
+            new ProgramDay("Sobota 26. 9. — svadobný deň", new[]
+            {
+                new ProgramEntry("do 12:00", "Príchod hostí najneskôr o 12:00"),
+                new ProgramEntry("13:00", "Obrad"),
+                new ProgramEntry("14:00", "Novomanželské fotenie a program pre hostí"),
+                new ProgramEntry("15:30", "Slávnostné jedlo"),
+            }),
+            new ProgramDay("Nedeľa 27. 9.", new[]
+            {
+                new ProgramEntry("9:00", "Rozlúčka a odchod"),
+            }),
+        },
+        ProgramNote = "Zvyšok programu ešte doladíme — podrobnosti čoskoro doplníme.",
 
         MenuNavLabel = "Svadobné menu",
         MenuHeading = "Svadobné menu",
@@ -119,7 +145,6 @@ public static class ContentSk
             }),
         },
         MenuDietaryNote = "Na želanie pripravíme aj vegetariánsku variantu — mäso nahradíme syrom halloumi, hermelínom alebo tofu. Zohľadníme aj ďalšie diétne obmedzenia, stačí nám dať vedieť.",
-        MenuBackLabel = "Späť na úvod",
 
         FooterSignature = "S láskou, Deni & Ivo",
     };

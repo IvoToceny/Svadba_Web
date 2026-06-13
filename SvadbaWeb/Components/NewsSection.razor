@@ -1,11 +1,11 @@
 @inherits LocalizedComponentBase
 @inject NewsService News
 
-@if (_items.Count > 0)
-{
-    <section class="section section-news" id="aktuality">
-        <div class="container narrow">
-            <h2 class="section-title">@C.NewsHeading</h2>
+<section class="section section-news">
+    <div class="container narrow">
+        <h1 class="section-title">@C.NewsHeading</h1>
+        @if (_items.Count > 0)
+        {
             <ol class="news-list">
                 @foreach (var item in _items)
                 {
@@ -13,15 +13,19 @@
                     <li class="news-item">
                         <div class="news-date">@FormatDate(item.Date)</div>
                         <div class="news-body">
-                            <h3 class="news-title">@t.Title</h3>
+                            <h2 class="news-title">@t.Title</h2>
                             <p class="news-text">@t.Text</p>
                         </div>
                     </li>
                 }
             </ol>
-        </div>
-    </section>
-}
+        }
+        else
+        {
+            <p class="lead center news-empty">@C.NewsEmpty</p>
+        }
+    </div>
+</section>
 
 @code {
     private IReadOnlyList<NewsItem> _items = Array.Empty<NewsItem>();

@@ -1,6 +1,6 @@
 @inherits LocalizedComponentBase
 
-<div class="lang-switcher" role="group" aria-label="Jazyk / Language">
+<div class="lang-switcher @(Inline ? "lang-switcher-inline" : null)" role="group" aria-label="Jazyk / Language">
     @foreach (var (code, label) in _langs)
     {
         var isActive = Loc.CurrentLanguage == code;
@@ -14,6 +14,9 @@
 </div>
 
 @code {
+    /// <summary>Ak true, vykreslí sa bez fixného umiestnenia (na vloženie do nav baru).</summary>
+    [Parameter] public bool Inline { get; set; }
+
     private readonly (Language Code, string Label)[] _langs =
     {
         (Language.Sk, "SK"),
