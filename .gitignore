@@ -17,3 +17,7 @@ build/
 # OS
 Thumbs.db
 .DS_Store
+
+# Pracovné podklady – NEPUBLIKOVAŤ (obsahujú osobné údaje / nepatria na web)
+SvadbaWeb/wwwroot/*.pdf
+SvadbaWeb/591772843_*.jpg

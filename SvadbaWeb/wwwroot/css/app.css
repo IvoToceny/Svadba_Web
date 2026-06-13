@@ -269,8 +269,81 @@ h1:focus { outline: none; }
 .footer-names { font-family: var(--font-script); font-size: 3rem; line-height: 1; color: var(--gold-soft); margin-bottom: 0.6rem; }
 .footer-sign { font-family: var(--font-head); font-style: italic; font-size: 1.2rem; color: rgba(252, 250, 245, 0.9); margin-bottom: 0.4rem; }
 .footer-date { font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(252, 250, 245, 0.6); margin: 0; }
+.footer-menu-link {
+    display: inline-block; margin-top: 1.4rem;
+    font-family: var(--font-body); font-weight: 500; font-size: 0.92rem; letter-spacing: 0.02em;
+    color: var(--gold-soft); text-decoration: none;
+    border-bottom: 1px solid rgba(199, 168, 113, 0.5); padding-bottom: 2px;
+}
+.footer-menu-link:hover { color: #fff; border-bottom-color: #fff; }
 
 .section-notfound { min-height: 70vh; display: flex; align-items: center; }
+
+/* ---------- odkaz na menu v hero ---------- */
+.hero-menu-link {
+    display: inline-block; margin-top: 1.3rem;
+    font-family: var(--font-head); font-style: italic; font-size: 1.18rem;
+    color: var(--olive-dark); text-decoration: none;
+    border-bottom: 1px solid var(--gold); padding-bottom: 2px;
+    transition: color .15s ease, border-color .15s ease;
+}
+.hero-menu-link:hover { color: var(--burgundy); border-bottom-color: var(--burgundy); }
+
+/* ---------- dva odkazy v info kartičke ---------- */
+.info-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.3rem; }
+
+/* ---------- aktuality ---------- */
+.section-news { background: var(--paper); padding: clamp(2.8rem, 6vw, 4.5rem) 0; }
+.news-list { list-style: none; margin: 2.4rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+.news-item {
+    display: grid; grid-template-columns: auto 1fr; gap: 0.4rem 1.4rem; align-items: start;
+    background: var(--cream); border: 1px solid var(--line); border-left: 4px solid var(--gold);
+    border-radius: var(--radius); padding: 1.2rem 1.5rem; box-shadow: var(--shadow-sm);
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.news-item:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.news-date {
+    font-family: var(--font-head); font-style: italic; color: var(--rust);
+    font-size: 1rem; white-space: nowrap; padding-top: 0.3rem;
+}
+.news-title { font-size: 1.35rem; color: var(--burgundy); margin: 0 0 0.3rem; }
+.news-text { color: var(--muted); margin: 0; }
+
+/* ---------- stránka so svadobným menu ---------- */
+.section-menu {
+    min-height: 100vh; min-height: 100svh;
+    background: radial-gradient(120% 90% at 50% 0%, #ffffff 0%, var(--paper) 50%, var(--cream) 100%);
+}
+.menu-back {
+    display: inline-block; margin-bottom: 1.4rem;
+    font-family: var(--font-body); font-weight: 500; font-size: 0.95rem;
+    color: var(--rust); text-decoration: none;
+}
+.menu-back:hover { text-decoration: underline; }
+.menu-title { margin-top: 0.4rem; }
+.menu-intro { margin: 1.1rem auto 0; max-width: 46ch; }
+.menu-sprig { margin: 1.6rem auto 0.5rem; }
+.menu-courses { margin-top: 2.4rem; display: flex; flex-direction: column; gap: 2.6rem; }
+.menu-course { text-align: center; }
+.menu-course-title {
+    font-family: var(--font-head); font-style: italic; font-weight: 600;
+    font-size: clamp(1.5rem, 3.6vw, 2.05rem); color: var(--burgundy); margin: 0 0 1rem;
+}
+.menu-course-title::after {
+    content: ""; display: block; width: 46px; height: 2px;
+    margin: 0.7rem auto 0; background: var(--gold); opacity: 0.7;
+}
+.menu-items { list-style: none; margin: 0 auto; padding: 0; max-width: 52ch; }
+.menu-items li {
+    font-family: var(--font-head); font-size: 1.24rem; color: var(--ink);
+    padding: 0.5rem 0.4rem; border-bottom: 1px dashed var(--line);
+}
+.menu-items li:last-child { border-bottom: none; }
+.menu-note {
+    margin: 3rem auto 0; max-width: 54ch; text-align: center;
+    font-size: 0.95rem; color: var(--muted);
+    background: var(--cream-2); border-radius: 12px; padding: 1rem 1.3rem;
+}
 
 /* ---------- responsive ---------- */
 @media (max-width: 640px) {
@@ -281,6 +354,8 @@ h1:focus { outline: none; }
     .leaf-decor { width: 44vw; opacity: 0.4; }
     .hero-weekday, .hero-time { padding: 0.5rem 0.9rem; letter-spacing: 0.16em; }
     .hero-day { padding: 0.15rem 1rem; }
+    .news-item { grid-template-columns: 1fr; gap: 0.2rem; }
+    .news-date { padding-top: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

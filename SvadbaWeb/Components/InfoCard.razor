@@ -1,9 +1,22 @@
+@{
+    var hasLink1 = !string.IsNullOrEmpty(Item.LinkUrl) && !string.IsNullOrEmpty(Item.LinkLabel);
+    var hasLink2 = !string.IsNullOrEmpty(Item.Link2Url) && !string.IsNullOrEmpty(Item.Link2Label);
+}
 <div class="info-card">
     <h3>@Item.Title</h3>
     <p>@Item.Text</p>
-    @if (!string.IsNullOrEmpty(Item.LinkUrl) && !string.IsNullOrEmpty(Item.LinkLabel))
+    @if (hasLink1 || hasLink2)
     {
-        <a class="info-link" href="@Item.LinkUrl" target="_blank" rel="noopener">@Item.LinkLabel <span aria-hidden="true">→</span></a>
+        <div class="info-links">
+            @if (hasLink1)
+            {
+                <a class="info-link" href="@Item.LinkUrl" target="_blank" rel="noopener">@Item.LinkLabel <span aria-hidden="true">→</span></a>
+            }
+            @if (hasLink2)
+            {
+                <a class="info-link" href="@Item.Link2Url" target="_blank" rel="noopener">@Item.Link2Label <span aria-hidden="true">→</span></a>
+            }
+        </div>
     }
 </div>
 

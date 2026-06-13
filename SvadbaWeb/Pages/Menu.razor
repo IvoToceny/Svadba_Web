@@ -1,0 +1,47 @@
+@page "/menu"
+@inherits LocalizedComponentBase
+@inject NavigationManager Nav
+
+<PageTitle>@C.MenuHeading · Denisa & Ivo</PageTitle>
+
+<section class="section section-menu">
+    <div class="container narrow">
+        <a class="menu-back" href="@Nav.BaseUri"><span aria-hidden="true">←</span> @C.MenuBackLabel</a>
+
+        <h1 class="section-title menu-title">@C.MenuHeading</h1>
+        <p class="lead center menu-intro">@C.MenuIntro</p>
+
+        <svg class="sprig menu-sprig" viewBox="0 0 200 22" aria-hidden="true">@_sprig</svg>
+
+        <div class="menu-courses">
+            @foreach (var course in C.MenuCourses)
+            {
+                <section class="menu-course">
+                    <h2 class="menu-course-title">@course.Title</h2>
+                    <ul class="menu-items">
+                        @foreach (var dish in course.Items)
+                        {
+                            <li>@dish</li>
+                        }
+                    </ul>
+                </section>
+            }
+        </div>
+
+        <p class="menu-note">@C.MenuDietaryNote</p>
+    </div>
+</section>
+
+@code {
+    // Tá istá ozdobná vetvička ako v hero sekcii (vizuálna kontinuita).
+    private readonly MarkupString _sprig = new(@"
+        <g stroke='currentColor' stroke-width='1.1'>
+          <line x1='28' y1='11' x2='86' y2='11' />
+          <line x1='114' y1='11' x2='172' y2='11' />
+        </g>
+        <g fill='currentColor'>
+          <path d='M100 2 L105 11 L100 20 L95 11 Z' />
+          <ellipse cx='88'  cy='11' rx='7' ry='2.6' transform='rotate(-22 88 11)' />
+          <ellipse cx='112' cy='11' rx='7' ry='2.6' transform='rotate(22 112 11)' />
+        </g>");
+}

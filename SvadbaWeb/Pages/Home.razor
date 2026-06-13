@@ -30,8 +30,13 @@
         <a class="btn btn-primary btn-lg" href="@SiteConfig.GoogleFormUrl" target="_blank" rel="noopener">
             @C.RsvpButton
         </a>
+
+        <a class="hero-menu-link" href="menu">@C.MenuNavLabel <span aria-hidden="true">→</span></a>
     </div>
 </header>
+
+@* ---------- AKTUALITY ---------- *@
+<NewsSection />
 
 @* ---------- POZVANIE ---------- *@
 <section class="section section-invite">
@@ -101,6 +106,7 @@
     <p class="footer-names">@C.CoupleNames</p>
     <p class="footer-sign">@C.FooterSignature</p>
     <p class="footer-date">26. 9. 2026 · Lysovický rybník</p>
+    <a class="footer-menu-link" href="menu">@C.MenuNavLabel <span aria-hidden="true">→</span></a>
 </footer>
 
 @code {

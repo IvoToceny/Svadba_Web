@@ -32,12 +32,14 @@ public static class ContentSk
                 "Obrad sa bude konať v sobotu 26. 9. 2026 o 13:00. Ak plánujete prísť až v sobotu, prosíme, dostavte sa do 12:00."),
             new InfoItem("Miesto",
                 "Lysovický rybník neďaleko Vyškova. Areál máme rezervovaný od piatku do nedele rána.",
+                "Stránka areálu", SiteConfig.VenueSiteUrl,
                 "Zobraziť na mape", SiteConfig.VenueMapUrl),
             new InfoItem("Parkovanie",
                 "Parkovanie je priamo v areáli a je bezplatné."),
             new InfoItem("Ubytovanie",
-                "Ubytovanie odporúčame v meste Vyškov (~10 km od miesta konania). Náš tip je hotel Allvet.",
-                "Hotel Allvet", SiteConfig.HotelMapUrl),
+                "Ubytovanie odporúčame v meste Vyškov (~10 km od miesta konania). Pripravili sme pre vás vyhľadávanie ubytovania na termín svadby.",
+                "Nájsť ubytovanie (Booking.com)", SiteConfig.AccommodationUrl,
+                "Hotel Allvet (náš tip)", SiteConfig.HotelMapUrl),
             new InfoItem("Fotenie počas obradu",
                 "Prosíme vás o láskavé zdržanie sa fotenia počas obradu. Ďakujeme."),
             new InfoItem("Program",
@@ -63,6 +65,61 @@ public static class ContentSk
         ContactOr = "alebo nás kontaktujte priamo",
         PhoneLabel = "Telefón",
         MessengerLabel = "Messenger",
+
+        NewsHeading = "Aktuality",
+
+        MenuNavLabel = "Svadobné menu",
+        MenuHeading = "Svadobné menu",
+        MenuIntro = "Na náš veľký deň sme pre vás pripravili nasledujúce dobroty. Dobrú chuť!",
+        MenuCourses = new[]
+        {
+            new MenuCourse("Uvítacie občerstvenie", new[]
+            {
+                "Zdobené kanapky (rôzne druhy)",
+                "Parmská šunka",
+                "Výber syrov",
+                "Škvarková nátierka s chlebom",
+            }),
+            new MenuCourse("Predkrmy a studený raut", new[]
+            {
+                "Výber talianskych a francúzskych syrov",
+                "Paštéta — zverinová, kačacia a kuracia",
+                "Carpaccio z cvikly",
+                "Hovädzí tatarák s hriankami a cesnakom",
+            }),
+            new MenuCourse("Polievka", new[]
+            {
+                "Hovädzí vývar s pečeňovými knedlíčkami, rezancami a zeleninou",
+            }),
+            new MenuCourse("Hlavný chod", new[]
+            {
+                "Sviečková na smotane s knedľou",
+            }),
+            new MenuCourse("Teplý raut", new[]
+            {
+                "Rezne — kuracie, bravčové a zo zveriny",
+                "Hovädzí a zverinový guláš",
+                "Grilovaný hermelín s maslovou zeleninou",
+                "Mini burgery",
+                "Losos marinovaný v citrusoch",
+            }),
+            new MenuCourse("Šaláty", new[]
+            {
+                "Cestovinový šalát",
+                "Grécky šalát",
+                "Mix listových šalátov s dresingom a parmezánom",
+            }),
+            new MenuCourse("Prílohy", new[]
+            {
+                "Grilovaná zelenina",
+                "Pečené zemiaky s bylinkami a cesnakom",
+                "Hranolky",
+                "Ratatouille",
+                "Výber pečiva",
+            }),
+        },
+        MenuDietaryNote = "Na želanie pripravíme aj vegetariánsku variantu — mäso nahradíme syrom halloumi, hermelínom alebo tofu. Zohľadníme aj ďalšie diétne obmedzenia, stačí nám dať vedieť.",
+        MenuBackLabel = "Späť na úvod",
 
         FooterSignature = "S láskou, Deni & Ivo",
     };

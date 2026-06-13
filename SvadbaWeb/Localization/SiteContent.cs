@@ -1,7 +1,16 @@
 namespace SvadbaWeb.Localization;
 
-/// <summary>Jedna informačná kartička (nadpis + text, voliteľne odkaz).</summary>
-public record InfoItem(string Title, string Text, string? LinkLabel = null, string? LinkUrl = null);
+/// <summary>Jedna informačná kartička (nadpis + text, voliteľne až dva odkazy).</summary>
+public record InfoItem(
+    string Title,
+    string Text,
+    string? LinkLabel = null,
+    string? LinkUrl = null,
+    string? Link2Label = null,
+    string? Link2Url = null);
+
+/// <summary>Jeden chod svadobného menu (nadpis + zoznam jedál).</summary>
+public record MenuCourse(string Title, string[] Items);
 
 /// <summary>
 /// Všetky texty stránky pre jeden jazyk. Konkrétne preklady sú v
@@ -48,6 +57,17 @@ public record SiteContent
     public required string ContactOr { get; init; }
     public required string PhoneLabel { get; init; }
     public required string MessengerLabel { get; init; }
+
+    // ----- Aktuality / Oznámenia -----
+    public required string NewsHeading { get; init; }
+
+    // ----- Svadobné menu (samostatná stránka /menu) -----
+    public required string MenuNavLabel { get; init; }   // text odkazu na menu
+    public required string MenuHeading { get; init; }
+    public required string MenuIntro { get; init; }
+    public required MenuCourse[] MenuCourses { get; init; }
+    public required string MenuDietaryNote { get; init; }
+    public required string MenuBackLabel { get; init; }
 
     // ----- Pätička -----
     public required string FooterSignature { get; init; }

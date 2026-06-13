@@ -28,9 +28,17 @@ public static class SiteConfig
 
     // ======================================================================
 
-    // Odkazy na mapy (predvyplnené ako vyhľadávanie; pokojne nahraď presnými)
-    public const string VenueMapUrl =
-        "https://www.google.com/maps/search/?api=1&query=Lysovick%C3%BD+rybn%C3%ADk+Vy%C5%A1kov";
+    // Web areálu (miesto konania) — reálny odkaz z dotazníka
+    public const string VenueSiteUrl = "https://svatbylysovice.cz/";
+
+    // Mapa miesta konania — reálny pin z dotazníka
+    public const string VenueMapUrl = "https://maps.app.goo.gl/Ny3qKRMqfUNF355B6";
+
+    // Vyhľadávanie ubytovania (Booking.com — Vyškov, prednastavený termín svadby 25.–27. 9. 2026)
+    public const string AccommodationUrl =
+        "https://www.booking.com/searchresults.cs.html?ss=Vy%C5%A1kov&checkin=2026-09-25&checkout=2026-09-27&group_adults=2&no_rooms=1&group_children=0&dest_type=city";
+
+    // Tip na konkrétny hotel (mapa)
     public const string HotelMapUrl =
         "https://www.google.com/maps/search/?api=1&query=Hotel+Allvet+Vy%C5%A1kov";
 

@@ -1,0 +1,14 @@
+[
+  {
+    "date": "2026-06-13",
+    "sk": { "title": "Svadobné menu je online", "text": "Pozrite sa, aké dobroty sme pre vás pripravili — nájdete ich v sekcii Svadobné menu." },
+    "cz": { "title": "Svatební menu je online", "text": "Podívejte se, jaké dobroty jsme pro vás připravili — najdete je v sekci Svatební menu." },
+    "en": { "title": "The wedding menu is online", "text": "Take a look at the treats we've prepared for you — see the Wedding menu page." }
+  },
+  {
+    "date": "2026-05-01",
+    "sk": { "title": "Spustili sme našu svadobnú stránku", "text": "Postupne sem budeme pridávať všetky dôležité informácie. Sledujte aktuality!" },
+    "cz": { "title": "Spustili jsme naše svatební stránky", "text": "Postupně sem budeme přidávat všechny důležité informace. Sledujte aktuálně!" },
+    "en": { "title": "Our wedding website is live", "text": "We'll be adding all the important details here over time. Stay tuned!" }
+  }
+]

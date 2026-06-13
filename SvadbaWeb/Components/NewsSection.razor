@@ -1,0 +1,45 @@
+@inherits LocalizedComponentBase
+@inject NewsService News
+
+@if (_items.Count > 0)
+{
+    <section class="section section-news" id="aktuality">
+        <div class="container narrow">
+            <h2 class="section-title">@C.NewsHeading</h2>
+            <ol class="news-list">
+                @foreach (var item in _items)
+                {
+                    var t = item.Localized(Loc.CurrentLanguage);
+                    <li class="news-item">
+                        <div class="news-date">@FormatDate(item.Date)</div>
+                        <div class="news-body">
+                            <h3 class="news-title">@t.Title</h3>
+                            <p class="news-text">@t.Text</p>
+                        </div>
+                    </li>
+                }
+            </ol>
+        </div>
+    </section>
+}
+
+@code {
+    private IReadOnlyList<NewsItem> _items = Array.Empty<NewsItem>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _items = await News.GetAllAsync();
+    }
+
+    private string FormatDate(string iso)
+    {
+        if (DateTime.TryParse(iso, System.Globalization.CultureInfo.InvariantCulture,
+                System.Globalization.DateTimeStyles.None, out var d))
+        {
+            return Loc.CurrentLanguage == Language.En
+                ? d.ToString("d MMM yyyy", System.Globalization.CultureInfo.InvariantCulture)
+                : d.ToString("d. M. yyyy", System.Globalization.CultureInfo.InvariantCulture);
+        }
+        return iso;
+    }
+}
