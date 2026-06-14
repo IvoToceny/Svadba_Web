@@ -20,4 +20,7 @@ Thumbs.db
 
 # Pracovné podklady – NEPUBLIKOVAŤ (obsahujú osobné údaje / nepatria na web)
 SvadbaWeb/wwwroot/*.pdf
+SvadbaWeb/wwwroot/*.xlsx
+SvadbaWeb/wwwroot/*.xls
+SvadbaWeb/wwwroot/*.csv
 SvadbaWeb/591772843_*.jpg
