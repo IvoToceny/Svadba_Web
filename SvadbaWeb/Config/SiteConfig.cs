@@ -18,7 +18,7 @@ public static class SiteConfig
 
     // Bezplatný kľúč z https://web3forms.com (zaregistruj mail ivo6770@gmail.com,
     // skopíruj "Access Key" a vlož sem). Bez neho kontaktný formulár neodošle mail.
-    public const string Web3FormsAccessKey = "YOUR-WEB3FORMS-ACCESS-KEY";
+    public const string Web3FormsAccessKey = "e882ec44-4345-4168-a73c-a69a26d873fa";
 
     // Telefónne číslo pre kontaktné tlačidlo (vrátane predvoľby)
     public const string PhoneNumber = "+420 606 089 487";
@@ -62,7 +62,7 @@ public static class SiteConfig
     /// <summary>True ak je doplnený reálny Web3Forms kľúč.</summary>
     public static bool ContactFormConfigured =>
         !string.IsNullOrWhiteSpace(Web3FormsAccessKey) &&
-        Web3FormsAccessKey != "YOUR-WEB3FORMS-ACCESS-KEY";
+        Web3FormsAccessKey != "e882ec44-4345-4168-a73c-a69a26d873fa";
 
     public static string PhoneHref => "tel:" + PhoneNumber.Replace(" ", "");
 }
