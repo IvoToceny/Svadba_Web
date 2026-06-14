@@ -59,7 +59,7 @@ public static class ContentEn
 
         RsvpHeading = "Confirm your attendance",
         RsvpText = "So that we can fine-tune everything down to the last detail, we kindly ask you to fill out a short questionnaire. You will find questions about your attendance, food preferences and more.",
-        RsvpDeadline = "Please send your answers ideally by 13 May 2026.",
+        RsvpDeadline = "Please send your answers ideally by 1 July 2026.",
 
         ContactHeading = "Have questions?",
         ContactText = "If you have any questions, write to us using the form below or contact us directly.",

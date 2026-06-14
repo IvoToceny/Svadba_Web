@@ -21,10 +21,10 @@ public static class SiteConfig
     public const string Web3FormsAccessKey = "YOUR-WEB3FORMS-ACCESS-KEY";
 
     // Telefónne číslo pre kontaktné tlačidlo (vrátane predvoľby)
-    public const string PhoneNumber = "+421 900 000 000";
+    public const string PhoneNumber = "+420 606 089 487";
 
-    // Odkaz na Messenger (napr. https://m.me/tvoje.meno)
-    public const string MessengerUrl = "https://m.me/";
+    // Odkaz na Messenger (napr. https://m.me/ivo.toceny)
+    public const string MessengerUrl = "https://m.me/ivo.toceny";
 
     // ======================================================================
 

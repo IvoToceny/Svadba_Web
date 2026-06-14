@@ -207,19 +207,19 @@ h1:focus { outline: none; }
 }
 
 /* odpočet do svadby */
-.countdown { display: flex; gap: clamp(0.5rem, 2.2vw, 1.3rem); justify-content: center; margin-top: 1.9rem; }
-.cd-unit { display: flex; flex-direction: column; align-items: center; min-width: 3rem; }
+.countdown { display: flex; gap: clamp(0.6rem, 2.6vw, 1.7rem); justify-content: center; margin-top: 1.9rem; }
+.cd-unit { display: flex; flex-direction: column; align-items: center; min-width: clamp(3rem, 9vw, 4.8rem); }
 .cd-num {
     font-family: var(--font-head); font-weight: 600; line-height: 1; color: var(--burgundy);
-    font-size: clamp(1.7rem, 5.5vw, 2.6rem);
+    font-size: clamp(2.3rem, 7.5vw, 4.6rem);
 }
 .cd-label {
     font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.16em;
-    font-size: clamp(0.58rem, 1.7vw, 0.7rem); color: var(--muted); margin-top: 0.35rem;
+    font-size: clamp(0.64rem, 1.9vw, 0.85rem); color: var(--muted); margin-top: 0.4rem;
 }
 .countdown-done {
     font-family: var(--font-head); font-style: italic; color: var(--burgundy);
-    font-size: clamp(1.3rem, 4vw, 1.7rem); margin-top: 1.9rem;
+    font-size: clamp(1.6rem, 5vw, 2.5rem); margin-top: 1.9rem;
 }
 
 /* ---------- pozvanie ---------- */
@@ -299,7 +299,7 @@ h1:focus { outline: none; }
     outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(176, 137, 78, 0.16);
 }
 .contact-form textarea { resize: vertical; }
-.contact-form .btn-primary { margin-top: 0.4rem; }
+.contact-form .btn-primary { display: flex; width: fit-content; margin: 0.4rem auto 0; }
 .form-msg { margin-top: 0.9rem; font-weight: 500; }
 .form-msg.success { color: var(--olive); }
 .form-msg.error { color: var(--red); }

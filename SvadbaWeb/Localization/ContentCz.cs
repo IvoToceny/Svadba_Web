@@ -59,7 +59,7 @@ public static class ContentCz
 
         RsvpHeading = "Potvrďte svou účast",
         RsvpText = "Abychom mohli vše doladit do posledního detailu, prosíme vás o vyplnění krátkého dotazníku. Najdete v něm otázky o vaší účasti, preferencích v jídle a další.",
-        RsvpDeadline = "Odpovědi prosíme zaslat ideálně do 13. 5. 2026.",
+        RsvpDeadline = "Odpovědi prosíme zaslat ideálně do 1. 7. 2026.",
 
         ContactHeading = "Máte otázky?",
         ContactText = "Pokud máte jakékoli otázky, napište nám přes formulář níže nebo nás kontaktujte přímo.",
