@@ -46,7 +46,6 @@ public static class ContentSk
 
         PaletteTitle = "Farebná paleta",
         PaletteText = "Budeme veľmi radi, ak svojím oblečením podporíte našu farebnú paletu.",
-        PaletteCombosHeading = "Ako farby ladia",
         PaletteInspoHeading = "Inšpirácia",
         PaletteInspoText = "Hľadáte, čo si obliecť? Nechajte sa inšpirovať našou paletou — odtiene vínovej, hrdzavej a olivovej krásne ladia k jesennej svadbe.",
         PalettePinterestLabel = "Inšpirácia na Pintereste",

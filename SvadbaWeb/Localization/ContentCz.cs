@@ -46,7 +46,6 @@ public static class ContentCz
 
         PaletteTitle = "Barevná paleta",
         PaletteText = "Budeme velmi rádi, pokud svým oblečením podpoříte naši barevnou paletu.",
-        PaletteCombosHeading = "Jak barvy ladí",
         PaletteInspoHeading = "Inspirace",
         PaletteInspoText = "Hledáte, co si obléct? Nechte se inspirovat naší paletou — odstíny vínové, rezavé a olivové krásně ladí k podzimní svatbě.",
         PalettePinterestLabel = "Inspirace na Pinterestu",

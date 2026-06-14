@@ -44,7 +44,6 @@ public record SiteContent
     // ----- Farebná paleta (stránka /paleta) -----
     public required string PaletteTitle { get; init; }
     public required string PaletteText { get; init; }
-    public required string PaletteCombosHeading { get; init; }
     public required string PaletteInspoHeading { get; init; }
     public required string PaletteInspoText { get; init; }
     public required string PalettePinterestLabel { get; init; }

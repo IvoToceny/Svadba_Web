@@ -240,16 +240,7 @@ h1:focus { outline: none; }
     text-align: center; font-family: var(--font-head); font-style: italic; font-weight: 600;
     font-size: clamp(1.5rem, 3.5vw, 2rem); color: var(--burgundy); margin: 3.2rem 0 0;
 }
-.combo-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.2rem; margin-top: 1.6rem;
-}
-.combo-card {
-    display: flex; height: 120px; border-radius: var(--radius); overflow: hidden;
-    border: 1px solid var(--line); box-shadow: var(--shadow-sm);
-}
-.combo-bar { flex: 1; }
-.palette-inspo { text-align: center; }
+.palette-inspo { text-align: center; margin-top: 3.2rem; }
 .palette-inspo-buttons { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-top: 1.4rem; }
 
 /* ---------- rsvp ---------- */

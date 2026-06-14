@@ -46,7 +46,6 @@ public static class ContentEn
 
         PaletteTitle = "Colour palette",
         PaletteText = "We would be delighted if your outfits followed our colour palette.",
-        PaletteCombosHeading = "How the colours pair",
         PaletteInspoHeading = "Inspiration",
         PaletteInspoText = "Looking for outfit ideas? Take inspiration from our palette — shades of burgundy, rust and olive go beautifully with an autumn wedding.",
         PalettePinterestLabel = "Ideas on Pinterest",
