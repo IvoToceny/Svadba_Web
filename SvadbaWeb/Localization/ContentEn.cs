@@ -18,6 +18,12 @@ public static class ContentEn
         Month = "September",
         RsvpButton = "Fill out the form",
 
+        CountdownDays = "days",
+        CountdownHours = "hours",
+        CountdownMinutes = "minutes",
+        CountdownSeconds = "seconds",
+        CountdownDone = "The big day is here! 💍",
+
         InviteHeading = "Dear family, dear friends",
         InviteParagraphs = new[]
         {

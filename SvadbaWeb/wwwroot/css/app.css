@@ -175,24 +175,44 @@ h1:focus { outline: none; }
 .hero-date { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; margin-bottom: 2.2rem; }
 .hero-month {
     font-family: var(--font-head); text-transform: uppercase;
-    letter-spacing: 0.42em; font-size: 1rem; color: var(--brown);
+    letter-spacing: 0.42em; text-indent: 0.42em; font-size: 1rem; color: var(--brown);
 }
+/* 1fr auto 1fr → číslo dňa je vždy presne v strede (pod „September") */
 .hero-date-row {
-    display: flex; align-items: center;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    width: min(100%, 20rem);
     border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold);
 }
 .hero-weekday, .hero-time {
     font-family: var(--font-head); text-transform: uppercase;
     letter-spacing: 0.22em; font-size: 0.92rem; color: var(--muted); padding: 0.6rem 1.4rem;
 }
+.hero-weekday { justify-self: end; }
+.hero-time { justify-self: start; }
 .hero-day {
     font-family: var(--font-script); font-size: 3rem; line-height: 1; color: var(--gold);
     padding: 0.15rem 1.5rem; border-left: 1px solid var(--line); border-right: 1px solid var(--line);
 }
-.hero-year { font-family: var(--font-head); letter-spacing: 0.42em; font-size: 0.95rem; color: var(--muted); }
+.hero-year { font-family: var(--font-head); letter-spacing: 0.42em; text-indent: 0.42em; font-size: 0.95rem; color: var(--muted); }
 .hero-place {
-    font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.3em;
+    font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.3em; text-indent: 0.3em;
     font-size: clamp(1rem, 2.6vw, 1.3rem); color: var(--olive-dark); margin-top: 0.2rem;
+}
+
+/* odpočet do svadby */
+.countdown { display: flex; gap: clamp(0.5rem, 2.2vw, 1.3rem); justify-content: center; margin-top: 1.9rem; }
+.cd-unit { display: flex; flex-direction: column; align-items: center; min-width: 3rem; }
+.cd-num {
+    font-family: var(--font-head); font-weight: 600; line-height: 1; color: var(--burgundy);
+    font-size: clamp(1.7rem, 5.5vw, 2.6rem);
+}
+.cd-label {
+    font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.16em;
+    font-size: clamp(0.58rem, 1.7vw, 0.7rem); color: var(--muted); margin-top: 0.35rem;
+}
+.countdown-done {
+    font-family: var(--font-head); font-style: italic; color: var(--burgundy);
+    font-size: clamp(1.3rem, 4vw, 1.7rem); margin-top: 1.9rem;
 }
 
 /* ---------- pozvanie ---------- */

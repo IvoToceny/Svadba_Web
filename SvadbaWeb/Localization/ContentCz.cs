@@ -18,6 +18,12 @@ public static class ContentCz
         Month = "Září",
         RsvpButton = "Vyplnit dotazník",
 
+        CountdownDays = "dní",
+        CountdownHours = "hodin",
+        CountdownMinutes = "minut",
+        CountdownSeconds = "sekund",
+        CountdownDone = "Velký den je tu! 💍",
+
         InviteHeading = "Milá rodino, drazí přátelé",
         InviteParagraphs = new[]
         {

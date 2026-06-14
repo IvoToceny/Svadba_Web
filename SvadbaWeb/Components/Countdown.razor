@@ -1,0 +1,56 @@
+@inherits LocalizedComponentBase
+
+@if (_remaining > TimeSpan.Zero)
+{
+    <div class="countdown" role="timer">
+        <div class="cd-unit">
+            <span class="cd-num">@_remaining.Days</span>
+            <span class="cd-label">@C.CountdownDays</span>
+        </div>
+        <div class="cd-unit">
+            <span class="cd-num">@_remaining.Hours.ToString("00")</span>
+            <span class="cd-label">@C.CountdownHours</span>
+        </div>
+        <div class="cd-unit">
+            <span class="cd-num">@_remaining.Minutes.ToString("00")</span>
+            <span class="cd-label">@C.CountdownMinutes</span>
+        </div>
+        <div class="cd-unit">
+            <span class="cd-num">@_remaining.Seconds.ToString("00")</span>
+            <span class="cd-label">@C.CountdownSeconds</span>
+        </div>
+    </div>
+}
+else
+{
+    <div class="countdown-done">@C.CountdownDone</div>
+}
+
+@code {
+    // Cieľ: 26. 9. 2026 o 13:00 stredoeurópskeho letného času (CEST, UTC+2).
+    private static readonly DateTimeOffset Target = new(2026, 9, 26, 13, 0, 0, TimeSpan.FromHours(2));
+
+    private TimeSpan _remaining;
+    private System.Threading.Timer? _timer;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Tick();
+        _timer = new System.Threading.Timer(
+            _ => InvokeAsync(() => { Tick(); StateHasChanged(); }),
+            null, 1000, 1000);
+    }
+
+    private void Tick()
+    {
+        var r = Target - DateTimeOffset.Now;
+        _remaining = r > TimeSpan.Zero ? r : TimeSpan.Zero;
+    }
+
+    public override void Dispose()
+    {
+        _timer?.Dispose();
+        base.Dispose();
+    }
+}

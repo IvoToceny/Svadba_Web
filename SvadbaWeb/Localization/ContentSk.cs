@@ -18,6 +18,12 @@ public static class ContentSk
         Month = "September",
         RsvpButton = "Vyplniť dotazník",
 
+        CountdownDays = "dní",
+        CountdownHours = "hodín",
+        CountdownMinutes = "minút",
+        CountdownSeconds = "sekúnd",
+        CountdownDone = "Veľký deň je tu! 💍",
+
         InviteHeading = "Milá rodina, drahí priatelia",
         InviteParagraphs = new[]
         {

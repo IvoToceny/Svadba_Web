@@ -33,6 +33,13 @@ public record SiteContent
     public required string Month { get; init; }      // napr. September / Září
     public required string RsvpButton { get; init; }
 
+    // ----- Odpočet do svadby (countdown na domove) -----
+    public required string CountdownDays { get; init; }
+    public required string CountdownHours { get; init; }
+    public required string CountdownMinutes { get; init; }
+    public required string CountdownSeconds { get; init; }
+    public required string CountdownDone { get; init; }
+
     // ----- Pozvanie -----
     public required string InviteHeading { get; init; }
     public required string[] InviteParagraphs { get; init; }
