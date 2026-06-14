@@ -2,7 +2,7 @@ using SvadbaWeb.Config;
 
 namespace SvadbaWeb.Localization;
 
-/// <summary>Slovenské texty stránky. Tu meň slovenský obsah.</summary>
+/// <summary>Slovak page texts. Edit the Slovak content here.</summary>
 public static class ContentSk
 {
     public static readonly SiteContent Value = new()

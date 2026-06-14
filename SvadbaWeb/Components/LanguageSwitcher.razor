@@ -14,7 +14,7 @@
 </div>
 
 @code {
-    /// <summary>Ak true, vykreslí sa bez fixného umiestnenia (na vloženie do nav baru).</summary>
+    /// <summary>If true, renders without fixed positioning (for embedding in the nav bar).</summary>
     [Parameter] public bool Inline { get; set; }
 
     private readonly (Language Code, string Label)[] _langs =

@@ -4,15 +4,15 @@ using SvadbaWeb.Localization;
 namespace SvadbaWeb.Components;
 
 /// <summary>
-/// Základ pre komponenty, ktoré zobrazujú lokalizovaný text. Automaticky sa
-/// prekreslia pri zmene jazyka. V .razor použi <c>@inherits LocalizedComponentBase</c>
-/// a texty čítaj cez <c>C.Nieco</c>.
+/// Base class for components that display localized text. They automatically
+/// re-render when the language changes. In .razor use <c>@inherits LocalizedComponentBase</c>
+/// and read texts via <c>C.Something</c>.
 /// </summary>
 public abstract class LocalizedComponentBase : ComponentBase, IDisposable
 {
     [Inject] protected LocalizationService Loc { get; set; } = default!;
 
-    /// <summary>Aktuálne texty.</summary>
+    /// <summary>The current texts.</summary>
     protected SiteContent C => Loc.Content;
 
     protected override void OnInitialized() => Loc.OnChanged += HandleChanged;

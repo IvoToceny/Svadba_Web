@@ -4,9 +4,9 @@ using System.Text.Json;
 namespace SvadbaWeb.News;
 
 /// <summary>
-/// Načíta aktuality zo statického súboru <c>wwwroot/data/news.json</c> a zoradí ich
-/// od najnovšej. Súbor je editovateľný bez prekladu (aj priamo na GitHube), zmena sa
-/// prejaví po nasadení. Ak súbor chýba alebo je prázdny, sekcia aktualít sa nezobrazí.
+/// Loads announcements from the static <c>wwwroot/data/news.json</c> file and sorts them
+/// newest-first. The file can be edited without recompiling (even directly on GitHub); the
+/// change takes effect after deployment. If the file is missing or empty, the news section is hidden.
 /// </summary>
 public class NewsService
 {
@@ -26,12 +26,12 @@ public class NewsService
             var items = await _http.GetFromJsonAsync<List<NewsItem>>("data/news.json", JsonOptions);
             _cache = (items ?? new List<NewsItem>())
                 .Where(i => !string.IsNullOrWhiteSpace(i.Date))
-                .OrderByDescending(i => i.Date, StringComparer.Ordinal) // ISO dátumy → poradie = chronologické
+                .OrderByDescending(i => i.Date, StringComparer.Ordinal) // ISO dates → ordering = chronological
                 .ToList();
         }
         catch
         {
-            // Súbor nemusí existovať (alebo je neplatný) — aktuality jednoducho nebudú.
+            // The file may not exist (or may be invalid) — just show no announcements.
             _cache = new List<NewsItem>();
         }
 

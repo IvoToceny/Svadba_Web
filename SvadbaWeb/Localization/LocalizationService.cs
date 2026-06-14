@@ -3,9 +3,9 @@ using Microsoft.JSInterop;
 namespace SvadbaWeb.Localization;
 
 /// <summary>
-/// Drží aktuálny jazyk a príslušné texty. Voľbu jazyka ukladá do localStorage,
-/// takže ostane zapamätaná aj po obnovení stránky. Pri zmene jazyka vyvolá
-/// <see cref="OnChanged"/>, na čo komponenty zareagujú prekreslením.
+/// Holds the current language and its texts. The language choice is stored in
+/// localStorage, so it is remembered after a page reload. When the language
+/// changes it raises <see cref="OnChanged"/>, which components react to by re-rendering.
 /// </summary>
 public class LocalizationService
 {
@@ -20,7 +20,7 @@ public class LocalizationService
 
     public event Action? OnChanged;
 
-    /// <summary>Načíta uložený jazyk (ak existuje). Volá sa raz pri štarte.</summary>
+    /// <summary>Loads the stored language (if any). Called once at startup.</summary>
     public async Task InitializeAsync()
     {
         try
@@ -34,7 +34,7 @@ public class LocalizationService
         }
         catch
         {
-            // localStorage nemusí byť dostupné (napr. súkromné okno) — ostane default Sk.
+            // localStorage may be unavailable (e.g. a private window) — the default Sk stays.
         }
     }
 

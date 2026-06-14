@@ -1,6 +1,6 @@
 namespace SvadbaWeb.Localization;
 
-/// <summary>Jedna informačná kartička (nadpis + text, voliteľne až dva odkazy).</summary>
+/// <summary>One info card (title + text, optionally up to two links).</summary>
 public record InfoItem(
     string Title,
     string Text,
@@ -9,18 +9,18 @@ public record InfoItem(
     string? Link2Label = null,
     string? Link2Url = null);
 
-/// <summary>Jeden chod svadobného menu (nadpis + zoznam jedál).</summary>
+/// <summary>One wedding-menu course (heading + list of dishes).</summary>
 public record MenuCourse(string Title, string[] Items);
 
-/// <summary>Jedna položka programu (čas + popis).</summary>
+/// <summary>One programme entry (time + description).</summary>
 public record ProgramEntry(string Time, string Text);
 
-/// <summary>Jeden deň programu (nadpis dňa + položky).</summary>
+/// <summary>One programme day (day heading + entries).</summary>
 public record ProgramDay(string Title, ProgramEntry[] Entries);
 
 /// <summary>
-/// Všetky texty stránky pre jeden jazyk. Konkrétne preklady sú v
-/// ContentSk.cs / ContentCz.cs / ContentEn.cs — tam meň texty.
+/// All page texts for a single language. The actual translations live in
+/// ContentSk.cs / ContentCz.cs / ContentEn.cs — edit the texts there.
 /// </summary>
 public record SiteContent
 {
@@ -28,27 +28,27 @@ public record SiteContent
     public required string CoupleNames { get; init; }
     public required string Date { get; init; }
     public required string VenueShort { get; init; }
-    public required string Poem { get; init; }      // báseň z pozvánky (riadky oddelené \n)
-    public required string Weekday { get; init; }    // napr. Sobota
-    public required string Month { get; init; }      // napr. September / Září
+    public required string Poem { get; init; }      // poem from the invitation (lines separated by \n)
+    public required string Weekday { get; init; }    // e.g. Saturday
+    public required string Month { get; init; }      // e.g. September / Září
     public required string RsvpButton { get; init; }
 
-    // ----- Odpočet do svadby (countdown na domove) -----
+    // ----- Wedding countdown (on the home page) -----
     public required string CountdownDays { get; init; }
     public required string CountdownHours { get; init; }
     public required string CountdownMinutes { get; init; }
     public required string CountdownSeconds { get; init; }
     public required string CountdownDone { get; init; }
 
-    // ----- Pozvanie -----
+    // ----- Invitation -----
     public required string InviteHeading { get; init; }
     public required string[] InviteParagraphs { get; init; }
 
-    // ----- Informácie -----
+    // ----- Information -----
     public required string InfoHeading { get; init; }
     public required InfoItem[] InfoCards { get; init; }
 
-    // ----- Farebná paleta (stránka /paleta) -----
+    // ----- Colour palette (/paleta page) -----
     public required string PaletteTitle { get; init; }
     public required string PaletteText { get; init; }
     public required string PaletteInspoHeading { get; init; }
@@ -61,7 +61,7 @@ public record SiteContent
     public required string RsvpText { get; init; }
     public required string RsvpDeadline { get; init; }
 
-    // ----- Kontakt -----
+    // ----- Contact -----
     public required string ContactHeading { get; init; }
     public required string ContactText { get; init; }
     public required string FormName { get; init; }
@@ -75,29 +75,29 @@ public record SiteContent
     public required string PhoneLabel { get; init; }
     public required string MessengerLabel { get; init; }
 
-    // ----- Navigácia (top nav bar) -----
+    // ----- Navigation (top nav bar) -----
     public required string NavHome { get; init; }
     public required string NavNews { get; init; }
     public required string NavPalette { get; init; }
-    // (odkaz na program používa ProgramHeading, odkaz na menu používa MenuNavLabel)
+    // (the programme link uses ProgramHeading, the menu link uses MenuNavLabel)
 
-    // ----- Aktuality / Oznámenia (stránka /aktuality) -----
+    // ----- News / Announcements (/aktuality page) -----
     public required string NewsHeading { get; init; }
-    public required string NewsEmpty { get; init; }   // text, keď nie sú žiadne aktuality
+    public required string NewsEmpty { get; init; }   // text shown when there are no announcements
 
-    // ----- Program (stránka /program) -----
+    // ----- Programme (/program page) -----
     public required string ProgramHeading { get; init; }
     public required string ProgramIntro { get; init; }
     public required ProgramDay[] ProgramDays { get; init; }
     public required string ProgramNote { get; init; }
 
-    // ----- Svadobné menu (stránka /menu) -----
-    public required string MenuNavLabel { get; init; }   // text tabu/odkazu na menu
+    // ----- Wedding menu (/menu page) -----
+    public required string MenuNavLabel { get; init; }   // text of the menu tab/link
     public required string MenuHeading { get; init; }
     public required string MenuIntro { get; init; }
     public required MenuCourse[] MenuCourses { get; init; }
     public required string MenuDietaryNote { get; init; }
 
-    // ----- Pätička -----
+    // ----- Footer -----
     public required string FooterSignature { get; init; }
 }

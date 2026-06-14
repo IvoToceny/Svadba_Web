@@ -3,10 +3,10 @@ using SvadbaWeb.Localization;
 namespace SvadbaWeb.News;
 
 /// <summary>
-/// Jedna aktualita načítaná z <c>wwwroot/data/news.json</c>. Každá položka má dátum
-/// (formát YYYY-MM-DD) a text v jednom alebo viacerých jazykoch. Ak chýba preklad,
-/// použije sa náhrada (Sk → Cz → En). Pridávanie aktualít = úprava JSON súboru,
-/// netreba meniť kód ani prekladať do všetkých jazykov.
+/// A single announcement loaded from <c>wwwroot/data/news.json</c>. Each item has a date
+/// (YYYY-MM-DD format) and text in one or more languages. If a translation is missing,
+/// a fallback is used (Sk → Cz → En). Adding announcements = editing the JSON file,
+/// no need to change code or translate into every language.
 /// </summary>
 public class NewsItem
 {
@@ -15,7 +15,7 @@ public class NewsItem
     public NewsText? Cz { get; set; }
     public NewsText? En { get; set; }
 
-    /// <summary>Vyberie text pre daný jazyk s rozumnou náhradou, ak preklad chýba.</summary>
+    /// <summary>Picks the text for the given language, with a sensible fallback if a translation is missing.</summary>
     public NewsText Localized(Language lang) => (lang switch
     {
         Language.Cz => Cz ?? Sk ?? En,
