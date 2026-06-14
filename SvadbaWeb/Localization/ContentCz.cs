@@ -42,12 +42,15 @@ public static class ContentCz
                 "Hotel Allvet (náš tip)", SiteConfig.HotelMapUrl),
             new InfoItem("Focení během obřadu",
                 "Prosíme vás o laskavé zdržení se focení během obřadu. Děkujeme."),
-            new InfoItem("Program",
-                "Bližší informace k programu vám přineseme, až přijde ten správný čas."),
         },
 
         PaletteTitle = "Barevná paleta",
         PaletteText = "Budeme velmi rádi, pokud svým oblečením podpoříte naši barevnou paletu.",
+        PaletteCombosHeading = "Jak barvy ladí",
+        PaletteInspoHeading = "Inspirace",
+        PaletteInspoText = "Hledáte, co si obléct? Nechte se inspirovat naší paletou — odstíny vínové, rezavé a olivové krásně ladí k podzimní svatbě.",
+        PalettePinterestLabel = "Inspirace na Pinterestu",
+        PaletteCoolorsLabel = "Paleta v Coolors",
 
         RsvpHeading = "Potvrďte svou účast",
         RsvpText = "Abychom mohli vše doladit do posledního detailu, prosíme vás o vyplnění krátkého dotazníku. Najdete v něm otázky o vaší účasti, preferencích v jídle a další.",
@@ -68,6 +71,7 @@ public static class ContentCz
 
         NavHome = "Domů",
         NavNews = "Aktuálně",
+        NavPalette = "Barvy",
 
         NewsHeading = "Aktuálně",
         NewsEmpty = "Zatím tu nejsou žádné aktuality. Brzy sem přidáme novinky.",
@@ -146,6 +150,6 @@ public static class ContentCz
         },
         MenuDietaryNote = "Na přání připravíme i vegetariánskou variantu — maso nahradíme sýrem halloumi, hermelínem nebo tofu. Zohledníme i další dietní omezení, stačí nám dát vědět.",
 
-        FooterSignature = "S láskou, Deni & Ivo",
+        FooterSignature = "S láskou",
     };
 }

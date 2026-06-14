@@ -42,12 +42,15 @@ public static class ContentEn
                 "Hotel Allvet (our tip)", SiteConfig.HotelMapUrl),
             new InfoItem("Photos during the ceremony",
                 "We kindly ask you to refrain from taking photos during the ceremony. Thank you."),
-            new InfoItem("Programme",
-                "We will share more details about the programme when the time is right."),
         },
 
         PaletteTitle = "Colour palette",
         PaletteText = "We would be delighted if your outfits followed our colour palette.",
+        PaletteCombosHeading = "How the colours pair",
+        PaletteInspoHeading = "Inspiration",
+        PaletteInspoText = "Looking for outfit ideas? Take inspiration from our palette — shades of burgundy, rust and olive go beautifully with an autumn wedding.",
+        PalettePinterestLabel = "Ideas on Pinterest",
+        PaletteCoolorsLabel = "Palette on Coolors",
 
         RsvpHeading = "Confirm your attendance",
         RsvpText = "So that we can fine-tune everything down to the last detail, we kindly ask you to fill out a short questionnaire. You will find questions about your attendance, food preferences and more.",
@@ -68,6 +71,7 @@ public static class ContentEn
 
         NavHome = "Home",
         NavNews = "News",
+        NavPalette = "Colours",
 
         NewsHeading = "Latest updates",
         NewsEmpty = "No announcements yet. We'll add news here soon.",
@@ -146,6 +150,6 @@ public static class ContentEn
         },
         MenuDietaryNote = "On request we'll prepare a vegetarian variant — meat replaced with halloumi, soft cheese or tofu. We'll also accommodate other dietary needs, just let us know.",
 
-        FooterSignature = "With love, Deni & Ivo",
+        FooterSignature = "With love",
     };
 }

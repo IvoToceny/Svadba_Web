@@ -1,0 +1,57 @@
+@page "/paleta"
+@inherits LocalizedComponentBase
+
+<PageTitle>@C.PaletteTitle · Denisa & Ivo</PageTitle>
+
+<section class="section section-palette">
+    <div class="container">
+        <h1 class="section-title">@C.PaletteTitle</h1>
+        <p class="lead center palette-intro">@C.PaletteText</p>
+
+        <div class="swatch-grid">
+            @foreach (var (hex, name) in SiteConfig.Palette)
+            {
+                <div class="swatch-card">
+                    <div class="swatch-chip" style="background-color:@hex"></div>
+                    <div class="swatch-meta">
+                        <span class="swatch-name">@name</span>
+                        <span class="swatch-hexcode">@hex</span>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <h2 class="palette-subheading">@C.PaletteCombosHeading</h2>
+        <div class="combo-grid">
+            @foreach (var combo in _combos)
+            {
+                <div class="combo-card">
+                    @foreach (var hex in combo)
+                    {
+                        <span class="combo-bar" style="background-color:@hex"></span>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="palette-inspo">
+            <h2 class="palette-subheading">@C.PaletteInspoHeading</h2>
+            <p class="lead center palette-intro">@C.PaletteInspoText</p>
+            <div class="palette-inspo-buttons">
+                <a class="btn btn-primary" href="@SiteConfig.PalettePinterestUrl" target="_blank" rel="noopener">@C.PalettePinterestLabel</a>
+                <a class="btn btn-outline" href="@SiteConfig.PaletteCoolorsUrl" target="_blank" rel="noopener">@C.PaletteCoolorsLabel</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+    // Harmonické kombinácie z oficiálnej palety (ukážka, ako spolu farby ladia).
+    private readonly string[][] _combos =
+    {
+        new[] { "#7F0021", "#9B3506", "#83512A" }, // vínová · hrdzavá · hnedá
+        new[] { "#9E2C28", "#5D6035", "#3F4632" }, // červená · olivová · tmavá olivová
+        new[] { "#83512A", "#5D6035", "#7F0021" }, // hnedá · olivová · vínová
+        new[] { "#3F4632", "#9B3506", "#7F0021" }, // tmavá olivová · hrdzavá · vínová
+    };
+}

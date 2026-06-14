@@ -41,9 +41,14 @@ public record SiteContent
     public required string InfoHeading { get; init; }
     public required InfoItem[] InfoCards { get; init; }
 
-    // ----- Farebná paleta -----
+    // ----- Farebná paleta (stránka /paleta) -----
     public required string PaletteTitle { get; init; }
     public required string PaletteText { get; init; }
+    public required string PaletteCombosHeading { get; init; }
+    public required string PaletteInspoHeading { get; init; }
+    public required string PaletteInspoText { get; init; }
+    public required string PalettePinterestLabel { get; init; }
+    public required string PaletteCoolorsLabel { get; init; }
 
     // ----- RSVP -----
     public required string RsvpHeading { get; init; }
@@ -67,6 +72,7 @@ public record SiteContent
     // ----- Navigácia (top nav bar) -----
     public required string NavHome { get; init; }
     public required string NavNews { get; init; }
+    public required string NavPalette { get; init; }
     // (odkaz na program používa ProgramHeading, odkaz na menu používa MenuNavLabel)
 
     // ----- Aktuality / Oznámenia (stránka /aktuality) -----

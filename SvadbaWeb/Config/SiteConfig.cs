@@ -42,6 +42,12 @@ public static class SiteConfig
     public const string HotelMapUrl =
         "https://www.google.com/maps/search/?api=1&query=Hotel+Allvet+Vy%C5%A1kov";
 
+    // Inšpirácia k farebnej palete
+    public const string PalettePinterestUrl =
+        "https://www.pinterest.com/search/pins/?q=burgundy%20rust%20olive%20autumn%20wedding%20guest%20outfit";
+    public const string PaletteCoolorsUrl =
+        "https://coolors.co/7f0021-9b3506-3f4632-5d6035-9e2c28-83512a";
+
     /// <summary>Farebná paleta svadby (zobrazuje sa na stránke).</summary>
     public static readonly (string Hex, string Name)[] Palette =
     {
