@@ -30,10 +30,6 @@
         <p class="form-msg error">@C.FormError</p>
     }
 
-    @if (!SiteConfig.ContactFormConfigured)
-    {
-        <p class="form-note">⚙️ Formulár ešte nemá nastavený Web3Forms kľúč — doplň ho v <code>SiteConfig.Web3FormsAccessKey</code>.</p>
-    }
 </form>
 
 @code {
