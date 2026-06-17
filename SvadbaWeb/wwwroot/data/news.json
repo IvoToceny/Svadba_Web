@@ -1,18 +1,24 @@
 [
   {
-    "date": "2026-06-14",
+    "date": "2026-06-17",
+    "sk": { "title": "Vyplňte nám prosím dotazník 🙏", "text": "Ak ste tak ešte neurobili, prosíme vás o prednostné vyplnenie nášho svadobného dotazníka — ideálne do 1. 7. 2026. Veľmi nám to pomôže s prípravami a doladením všetkých detailov. Vopred vám zo srdca ďakujeme! 💛" },
+    "cz": { "title": "Vyplňte nám prosím dotazník 🙏", "text": "Pokud jste tak ještě neučinili, prosíme vás o přednostní vyplnění našeho svatebního dotazníku — ideálně do 1. 7. 2026. Moc nám to pomůže s přípravami a doladěním všech detailů. Předem vám ze srdce děkujeme! 💛" },
+    "en": { "title": "Please fill in our questionnaire 🙏", "text": "If you haven't done so yet, please fill in our wedding questionnaire as a priority — ideally by 1 July 2026. It will really help us with the preparations and final details. Thank you so much in advance! 💛" }
+  },
+  {
+    "date": "2026-06-17",
     "sk": { "title": "Čo si zbaliť", "text": "Okrem slávnostného oblečenia si nezabudnite priniesť aj plavky, športové oblečenie a obuv — pri rybníku bude priestor na kúpanie aj šport. Bližšie info čoskoro." },
     "cz": { "title": "Co si zabalit", "text": "Kromě slavnostního oblečení si nezapomeňte přibalit i plavky, sportovní oblečení a obuv — u rybníka bude prostor ke koupání i sportu. Bližší info brzy." },
     "en": { "title": "What to pack", "text": "Besides your formal outfit, don't forget swimwear, sportswear and shoes — there'll be space for swimming and sports by the pond. More info soon." }
   },
   {
-    "date": "2026-06-13",
+    "date": "2026-06-17",
     "sk": { "title": "Svadobné menu je online", "text": "Pozrite sa, aké dobroty sme pre vás pripravili — nájdete ich v sekcii Svadobné menu." },
     "cz": { "title": "Svatební menu je online", "text": "Podívejte se, jaké dobroty jsme pro vás připravili — najdete je v sekci Svatební menu." },
     "en": { "title": "The wedding menu is online", "text": "Take a look at the treats we've prepared for you — see the Wedding menu page." }
   },
   {
-    "date": "2026-05-01",
+    "date": "2026-06-17",
     "sk": { "title": "Spustili sme našu svadobnú stránku", "text": "Postupne sem budeme pridávať všetky dôležité informácie. Sledujte aktuality!" },
     "cz": { "title": "Spustili jsme naše svatební stránky", "text": "Postupně sem budeme přidávat všechny důležité informace. Sledujte aktuálně!" },
     "en": { "title": "Our wedding website is live", "text": "We'll be adding all the important details here over time. Stay tuned!" }
