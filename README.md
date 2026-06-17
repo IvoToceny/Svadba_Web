@@ -87,11 +87,10 @@ Svadba_Web/
       ├─ css/app.css            CELÝ vzhľad (farby, layout, responzivita)
       ├─ img/hero-top.png       botanické kvety hore na domove (výrez z pozvánky)
       ├─ img/hero-bottom.png    botanické kvety dole na domove
-      ├─ motiv.jpg              originálna pozvánka (zdroj kvetov)
       ├─ favicon.png, icon-192.png   ikonky
       └─ data/
          ├─ news.json                  ← OBSAH AKTUALÍT (tu pridávaš novinky)
-         └─ AKO-PRIDAT-AKTUALITU.md    návod, ako pridať aktualitu
+         └─ HOW-TO-ADD-NEWS.md    návod, ako pridať aktualitu
 ```
 
 ---
@@ -109,7 +108,7 @@ Svadba_Web/
   sama prekreslí a voľba sa uloží do prehliadača (localStorage).
 - **Aktuality:** sú oddelené od kódu v súbore `wwwroot/data/news.json`. Stránka si ho
   načíta za behu. Vďaka tomu sa dá novinka pridať **bez programovania** (aj priamo na
-  GitHube) – návod je v `wwwroot/data/AKO-PRIDAT-AKTUALITU.md`.
+  GitHube) – návod je v `wwwroot/data/HOW-TO-ADD-NEWS.md`.
 - **Kontaktný formulár:** nemá server – odosiela cez bezplatnú službu **Web3Forms**, ktorá
   pošle obsah na mail. Potrebuje kľúč v `SiteConfig.cs` (viď časť 5).
 - **RSVP:** je to odkaz na **Google formulár** (nie je súčasťou kódu). Odpovede si vieš
