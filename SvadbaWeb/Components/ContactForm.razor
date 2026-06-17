@@ -2,6 +2,10 @@
 @inject HttpClient Http
 
 <form class="contact-form" @onsubmit="SubmitAsync" @onsubmit:preventDefault>
+    @* Honeypot: hidden from humans, bots that tick it get rejected by Web3Forms (free anti-spam). *@
+    <input type="checkbox" name="botcheck" @bind="_botcheck"
+           style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
     <div class="form-row">
         <label class="field">
             <span>@C.FormName</span>
@@ -36,6 +40,7 @@
     private string _name = "";
     private string _email = "";
     private string _message = "";
+    private bool _botcheck;
     private FormState _state = FormState.Idle;
 
     private enum FormState { Idle, Sending, Success, Error }
@@ -55,6 +60,7 @@
                 name = _name,
                 email = _email,
                 message = _message,
+                botcheck = _botcheck,
             };
 
             var response = await Http.PostAsJsonAsync("https://api.web3forms.com/submit", payload);
