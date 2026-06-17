@@ -33,6 +33,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Enables GitHub Pages from the workflow itself (build_type = workflow),
+      # so it does not depend on toggling the setting in the UI.
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
