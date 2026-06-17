@@ -11,11 +11,11 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Automatické nasadenie po pushi je ZATIAĽ VYPNUTÉ, aby sa stránka nezverejnila.
-  # Až budeš chcieť stránku spustiť naživo, odkomentuj nasledujúce dva riadky
-  # (a v repo zapni Settings -> Pages -> Source = "GitHub Actions"):
-  # push:
-  #   branches: [ main ]
+  # Automatické nasadenie po každom pushi do vetvy main.
+  # (Vyžaduje: repo Public + Settings -> Pages -> Source = "GitHub Actions".)
+  push:
+    branches: [ main ]
+  # Ručné spustenie z karty Actions -> Run workflow.
   workflow_dispatch:
 
 permissions:
