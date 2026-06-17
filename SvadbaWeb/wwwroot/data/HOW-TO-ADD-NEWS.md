@@ -25,6 +25,9 @@ item (highest date) is shown at the top automatically.
   is used (order: Slovak → Czech → English). So you can fill in just `sk`.
 - Watch the **commas** between blocks and the **quotes** — JSON is strict about syntax.
   If unsure, validate the file e.g. at <https://jsonlint.com>.
+- To temporarily hide an item without deleting it, add `"draft": true` to its block.
+  It stays in the file but is not shown on the site. Remove the line (or set it to
+  `false`) to show it again.
 - If you leave the list empty (`[]`), the News section is not shown on the site at all.
 
 After editing, save / push the change — once deployed (GitHub Pages) the item appears on the site.

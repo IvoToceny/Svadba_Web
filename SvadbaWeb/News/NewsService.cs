@@ -25,7 +25,7 @@ public class NewsService
         {
             var items = await _http.GetFromJsonAsync<List<NewsItem>>("data/news.json", JsonOptions);
             _cache = (items ?? new List<NewsItem>())
-                .Where(i => !string.IsNullOrWhiteSpace(i.Date))
+                .Where(i => !i.Draft && !string.IsNullOrWhiteSpace(i.Date))
                 .OrderByDescending(i => i.Date, StringComparer.Ordinal) // ISO dates → ordering = chronological
                 .ToList();
         }

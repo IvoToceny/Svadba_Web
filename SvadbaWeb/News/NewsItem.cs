@@ -11,6 +11,7 @@ namespace SvadbaWeb.News;
 public class NewsItem
 {
     public string Date { get; set; } = "";
+    public bool Draft { get; set; }   // when true, the item stays in the file but is not shown on the site
     public NewsText? Sk { get; set; }
     public NewsText? Cz { get; set; }
     public NewsText? En { get; set; }
