@@ -154,6 +154,7 @@ public static class ContentEn
             }),
         },
         MenuDietaryNote = "On request we'll prepare a vegetarian variant — meat replaced with halloumi, soft cheese or tofu. We'll also accommodate other dietary needs, just let us know.",
+        MenuComingSoon = "We're still putting the wedding menu together — it will be published soon. Thank you for your patience. 💛",
 
         FooterSignature = "With love",
     };

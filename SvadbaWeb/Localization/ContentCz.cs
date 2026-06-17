@@ -154,6 +154,7 @@ public static class ContentCz
             }),
         },
         MenuDietaryNote = "Na přání připravíme i vegetariánskou variantu — maso nahradíme sýrem halloumi, hermelínem nebo tofu. Zohledníme i další dietní omezení, stačí nám dát vědět.",
+        MenuComingSoon = "Svatební menu připravujeme — zveřejníme ho už brzy. Děkujeme za trpělivost. 💛",
 
         FooterSignature = "S láskou",
     };

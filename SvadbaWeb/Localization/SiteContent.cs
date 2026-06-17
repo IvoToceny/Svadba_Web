@@ -97,6 +97,7 @@ public record SiteContent
     public required string MenuIntro { get; init; }
     public required MenuCourse[] MenuCourses { get; init; }
     public required string MenuDietaryNote { get; init; }
+    public required string MenuComingSoon { get; init; }   // shown while the menu is temporarily hidden
 
     // ----- Footer -----
     public required string FooterSignature { get; init; }

@@ -6,6 +6,13 @@
 <section class="section section-menu">
     <div class="container narrow">
         <h1 class="section-title menu-title">@C.MenuHeading</h1>
+
+        @* Menu temporarily hidden — will be published later. The full menu markup
+           below is kept commented out and can be restored when ready (together with
+           the _sprig field in @code). *@
+        <p class="lead center menu-intro">@C.MenuComingSoon</p>
+
+        @*
         <p class="lead center menu-intro">@C.MenuIntro</p>
 
         <svg class="sprig menu-sprig" viewBox="0 0 200 22" aria-hidden="true">@_sprig</svg>
@@ -26,11 +33,14 @@
         </div>
 
         <p class="menu-note">@C.MenuDietaryNote</p>
+        *@
     </div>
 </section>
 
 @code {
-    // The same decorative sprig as in the hero section (visual continuity).
+    // Decorative sprig — temporarily hidden together with the menu markup above.
+    // Restore this field when un-commenting the menu.
+    /*
     private readonly MarkupString _sprig = new(@"
         <g stroke='currentColor' stroke-width='1.1'>
           <line x1='28' y1='11' x2='86' y2='11' />
@@ -41,4 +51,5 @@
           <ellipse cx='88'  cy='11' rx='7' ry='2.6' transform='rotate(-22 88 11)' />
           <ellipse cx='112' cy='11' rx='7' ry='2.6' transform='rotate(22 112 11)' />
         </g>");
+    */
 }

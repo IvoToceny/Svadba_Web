@@ -154,6 +154,7 @@ public static class ContentSk
             }),
         },
         MenuDietaryNote = "Na želanie pripravíme aj vegetariánsku variantu — mäso nahradíme syrom halloumi, hermelínom alebo tofu. Zohľadníme aj ďalšie diétne obmedzenia, stačí nám dať vedieť.",
+        MenuComingSoon = "Svadobné menu pripravujeme — zverejníme ho už čoskoro. Ďakujeme za trpezlivosť. 💛",
 
         FooterSignature = "S láskou",
     };
