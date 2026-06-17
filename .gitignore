@@ -18,10 +18,10 @@ build/
 Thumbs.db
 .DS_Store
 
-# Pracovné podklady – NEPUBLIKOVAŤ (obsahujú osobné údaje / nepatria na web)
+# Working materials - DO NOT PUBLISH (contain personal data / not for the web)
 SvadbaWeb/wwwroot/*.pdf
 SvadbaWeb/wwwroot/*.xlsx
 SvadbaWeb/wwwroot/*.xls
 SvadbaWeb/wwwroot/*.csv
-# zatúlaná fotka – ignoruj kdekoľvek (koreň projektu aj wwwroot/img)
+# stray photo - ignore anywhere (project root and wwwroot/img)
 591772843_*.jpg

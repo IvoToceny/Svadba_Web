@@ -1,13 +1,13 @@
-# Ako pridať / upraviť aktualitu
+# How to add / edit a news item
 
-Aktuality (sekcia **Aktuality** na hlavnej stránke) sa berú zo súboru **`news.json`**
-v tomto priečinku. Netreba meniť žiadny kód ani spúšťať Visual Studio — stačí upraviť
-tento JSON súbor (kľudne aj priamo na GitHube cez tlačidlo „ceruzka").
+The news items (the **News** section on the home page) are read from the **`news.json`**
+file in this folder. You don't need to change any code or open Visual Studio — just edit
+this JSON file (you can do it right on GitHub via the "pencil" button).
 
-## Pridanie novej aktuality
+## Adding a new item
 
-Skopíruj jeden blok `{ ... }` a vlož ho do zoznamu (oddelený čiarkou). Najnovšia
-aktualita (najvyšší dátum) sa zobrazí navrchu automaticky.
+Copy one `{ ... }` block and paste it into the list (separated by a comma). The newest
+item (highest date) is shown at the top automatically.
 
 ```json
 {
@@ -18,13 +18,13 @@ aktualita (najvyšší dátum) sa zobrazí navrchu automaticky.
 }
 ```
 
-## Pravidlá
+## Rules
 
-- **`date`** musí byť v tvare `RRRR-MM-DD` (napr. `2026-09-01`). Podľa neho sa aktuality radia.
-- Jazyky `sk` / `cz` / `en` sú voliteľné — ak niektorý vynecháš, použije sa náhradný
-  preklad (poradie: slovenčina → čeština → angličtina). Pokojne teda vyplň len `sk`.
-- Dávaj pozor na **čiarky** medzi blokmi a na **úvodzovky** — JSON je citlivý na syntax.
-  Ak si neistý, over súbor napr. na <https://jsonlint.com>.
-- Ak necháš zoznam prázdny (`[]`), sekcia Aktuality sa na stránke vôbec nezobrazí.
+- **`date`** must be in the form `YYYY-MM-DD` (e.g. `2026-09-01`). Items are sorted by it.
+- The `sk` / `cz` / `en` languages are optional — if you omit one, a fallback translation
+  is used (order: Slovak → Czech → English). So you can fill in just `sk`.
+- Watch the **commas** between blocks and the **quotes** — JSON is strict about syntax.
+  If unsure, validate the file e.g. at <https://jsonlint.com>.
+- If you leave the list empty (`[]`), the News section is not shown on the site at all.
 
-Po úprave zmenu ulož / pushni — po nasadení (GitHub Pages) sa aktualita objaví na stránke.
+After editing, save / push the change — once deployed (GitHub Pages) the item appears on the site.

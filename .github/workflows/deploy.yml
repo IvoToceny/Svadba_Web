@@ -1,21 +1,21 @@
-# Nasadenie svadobnej stránky na GitHub Pages (zadarmo, statický hosting).
+# Deploy the wedding site to GitHub Pages (free static hosting).
 #
-# AKO TO ZAPNÚŤ (raz):
-#   1. Vytvor GitHub repo (napr. Svadba_Web) a pushni doň tento priečinok.
-#   2. V repo: Settings -> Pages -> Build and deployment -> Source = "GitHub Actions".
-#   3. Hotovo. Po každom pushi do vetvy main sa stránka automaticky zostaví a nasadí
-#      na https://<tvoj-login>.github.io/<nazov-repa>/
+# HOW TO ENABLE (once):
+#   1. Create a GitHub repo (e.g. Svadba_Web) and push this folder into it.
+#   2. In the repo: Settings -> Pages -> Build and deployment -> Source = "GitHub Actions".
+#   3. Done. Every push to the main branch automatically builds and deploys the site
+#      to https://<your-login>.github.io/<repo-name>/
 #
-# Kým repo neexistuje, tento súbor nič nerobí — stránka beží lokálne cez `dotnet watch`.
+# Until the repo exists, this file does nothing — the site runs locally via `dotnet watch`.
 
 name: Deploy to GitHub Pages
 
 on:
-  # Automatické nasadenie po každom pushi do vetvy main.
-  # (Vyžaduje: repo Public + Settings -> Pages -> Source = "GitHub Actions".)
+  # Automatic deployment on every push to the main branch.
+  # (Requires: Public repo + Settings -> Pages -> Source = "GitHub Actions".)
   push:
     branches: [ main ]
-  # Ručné spustenie z karty Actions -> Run workflow.
+  # Manual run from the Actions tab -> Run workflow.
   workflow_dispatch:
 
 permissions:
