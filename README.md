@@ -1,175 +1,178 @@
-# Svadobná stránka — Denisa & Ivo 💍
+# Wedding site — Denisa & Ivo 💍
 
-Viacjazyčná (SK / CZ / EN) svadobná stránka, responzívna (funguje na mobile aj počítači),
-postavená na **Blazor WebAssembly (.NET 10, C#)**. Editovateľná vo Visual Studiu s **Hot Reload**.
+A multilingual (SK / CZ / EN), responsive wedding site (works on both mobile and desktop),
+built on **Blazor WebAssembly (.NET 10, C#)**. Editable in Visual Studio with **Hot Reload**.
 
-- 📅 26. 9. 2026 · Lysovický rybník pri Vyškove
-- 📝 RSVP cez Google formulár: <https://forms.gle/tMXnmMwSWMaMJU6y6>
-- ✉️ Kontaktný formulár posiela mail na `ivo6770@gmail.com` (cez službu Web3Forms)
+- 📅 26 Sep 2026 · Lysovický pond near Vyškov
+- 📝 RSVP via Google Form: <https://forms.gle/tMXnmMwSWMaMJU6y6>
+- ✉️ The contact form sends mail to `ivo6770@gmail.com` (via the Web3Forms service)
 
-Je to **čisto statická stránka** — žiadny server, žiadna databáza. Vďaka tomu sa dá
-zadarmo hostiť na GitHub Pages.
+It is a **purely static site** — no server, no database. That is why it can be hosted
+for free on GitHub Pages.
 
 ---
 
-## 1. Spustenie lokálne (s Hot Reloadom)
+## 1. Running locally (with Hot Reload)
 
-Predpoklad: nainštalovaný **.NET 10 SDK** (alebo otvor `SvadbaWeb.sln` vo Visual Studiu).
+Prerequisite: the **.NET 10 SDK** installed (or open `SvadbaWeb.sln` in Visual Studio).
 
 ### A) Visual Studio
-1. Otvor `SvadbaWeb.sln`.
-2. Stlač **F5**. Pri úprave `.razor` / `.cs` / `.css` súborov sa zmeny prejavia cez **Hot Reload**.
+1. Open `SvadbaWeb.sln`.
+2. Press **F5**. When you edit `.razor` / `.cs` / `.css` files, the changes apply via **Hot Reload**.
 
-### B) Príkazový riadok
+### B) Command line
 ```bash
 cd SvadbaWeb
 dotnet watch
 ```
-Otvorí sa prehliadač na `http://localhost:5202`. Po uložení súboru sa stránka sama prekreslí.
+A browser opens at `http://localhost:5202`. After you save a file the page re-renders itself.
 
-> 💡 **Tip:** binárne súbory (obrázky, PDF) **nepridávaj do projektu, kým beží server** —
-> vie to spôsobiť zaseknutie na „Načítavam…". Vtedy server zastav, pridaj súbor a spusti znova.
-> Ak sa to aj tak zasekne, pomôže **tvrdé obnovenie** prehliadača (Ctrl+Shift+R).
+> 💡 **Tip:** do not add binary files (images, PDFs) to the project **while the server is running** —
+> it can cause it to get stuck on "Loading…". In that case stop the server, add the file and start again.
+> If it still hangs, a **hard refresh** of the browser helps (Ctrl+Shift+R).
 
 ---
 
-## 2. Štruktúra projektu
+## 2. Project structure
 
 ```
 Svadba_Web/
-├─ README.md                  ← tento súbor
+├─ README.md                  ← this file
 ├─ LICENSE
-├─ .gitignore                 ← čo sa NEverzuje (build, osobné podklady – viď nižšie)
-├─ .github/workflows/deploy.yml   ← automatické nasadenie na GitHub Pages (teraz vypnuté)
-├─ SvadbaWeb.sln              ← solution pre Visual Studio
-└─ SvadbaWeb/                 ← samotný projekt
-   ├─ SvadbaWeb.csproj        ← definícia projektu a balíčkov
-   ├─ Program.cs              ← štart aplikácie + registrácia služieb
-   ├─ App.razor               ← smerovač (router) – spája URL adresy so stránkami
-   ├─ _Imports.razor          ← spoločné `@using` pre všetky .razor súbory
+├─ .gitignore                 ← what is NOT versioned (build output, personal materials – see below)
+├─ .github/workflows/deploy.yml   ← automatic deployment to GitHub Pages (on push to main)
+├─ SvadbaWeb.sln              ← Visual Studio solution
+└─ SvadbaWeb/                 ← the project itself
+   ├─ SvadbaWeb.csproj        ← project and package definition
+   ├─ Program.cs              ← app startup + service registration
+   ├─ App.razor               ← router – maps URLs to pages
+   ├─ _Imports.razor          ← shared `@using` for all .razor files
    │
    ├─ Layout/
-   │  └─ MainLayout.razor     ← spoločná kostra každej stránky (nav bar + obsah)
+   │  └─ MainLayout.razor     ← shared frame for every page (nav bar + content)
    │
-   ├─ Pages/                  ← jednotlivé stránky (každá má svoju URL)
-   │  ├─ Home.razor           →  /            domov (hero ako pozvánka, info, kontakt)
-   │  ├─ Aktuality.razor      →  /aktuality   oznámenia/novinky
-   │  ├─ Program.razor        →  /program     program svadobného víkendu
-   │  ├─ Menu.razor           →  /menu        svadobné menu
-   │  ├─ Palette.razor        →  /paleta      farebná paleta + inšpirácia
-   │  └─ NotFound.razor       →  404 (neexistujúca adresa)
+   ├─ Pages/                  ← individual pages (each has its own URL)
+   │  ├─ Home.razor           →  /            home (hero as the invitation, info, contact)
+   │  ├─ Aktuality.razor      →  /aktuality   announcements / news
+   │  ├─ Program.razor        →  /program     the wedding-weekend schedule
+   │  ├─ Menu.razor           →  /menu        the wedding menu
+   │  ├─ Palette.razor        →  /paleta      colour palette + inspiration
+   │  └─ NotFound.razor       →  404 (non-existent address)
    │
-   ├─ Components/             ← znovupoužiteľné kúsky UI
-   │  ├─ NavBar.razor             horné menu (taby + prepínač jazykov)
-   │  ├─ LanguageSwitcher.razor   tlačidlá SK / CZ / EN
-   │  ├─ InfoCard.razor           jedna kartička v sekcii „Dôležité informácie"
-   │  ├─ ContactForm.razor        kontaktný formulár (posiela mail cez Web3Forms)
-   │  ├─ NewsSection.razor        výpis aktualít (používa ho stránka /aktuality)
-   │  └─ LocalizedComponentBase.cs  spoločný základ – sprístupní texty cez `C` a prekreslí pri zmene jazyka
+   ├─ Components/             ← reusable UI pieces
+   │  ├─ NavBar.razor             top menu (tabs + language switcher)
+   │  ├─ LanguageSwitcher.razor   SK / CZ / EN buttons
+   │  ├─ InfoCard.razor           one card in the "Important information" section
+   │  ├─ ContactForm.razor        contact form (sends mail via Web3Forms)
+   │  ├─ NewsSection.razor        renders the news (used by the /aktuality page)
+   │  └─ LocalizedComponentBase.cs  shared base – exposes texts via `C` and re-renders on language change
    │
-   ├─ Localization/          ← VŠETKY TEXTY stránky (preklady)
-   │  ├─ Language.cs              zoznam jazykov (Sk / Cz / En)
-   │  ├─ SiteContent.cs          „šablóna" – aké texty stránka má (zoznam polí)
-   │  ├─ ContentSk.cs            🇸🇰 slovenské texty   ← tu meníš SK obsah
-   │  ├─ ContentCz.cs            🇨🇿 české texty       ← tu meníš CZ obsah
-   │  ├─ ContentEn.cs            🇬🇧 anglické texty    ← tu meníš EN obsah
-   │  └─ LocalizationService.cs  drží aktuálny jazyk (a pamätá si voľbu v prehliadači)
+   ├─ Localization/          ← ALL site TEXTS (translations)
+   │  ├─ Language.cs              the list of languages (Sk / Cz / En)
+   │  ├─ SiteContent.cs          the "template" – which texts the site has (the field list)
+   │  ├─ ContentSk.cs            🇸🇰 Slovak texts   ← edit SK content here
+   │  ├─ ContentCz.cs            🇨🇿 Czech texts    ← edit CZ content here
+   │  ├─ ContentEn.cs            🇬🇧 English texts  ← edit EN content here
+   │  └─ LocalizationService.cs  holds the current language (and remembers the choice in the browser)
    │
-   ├─ News/                  ← logika aktualít
-   │  ├─ NewsItem.cs             model jednej aktuality
-   │  └─ NewsService.cs          načíta aktuality zo súboru news.json
+   ├─ News/                  ← news logic
+   │  ├─ NewsItem.cs             model of a single news item
+   │  └─ NewsService.cs          loads the news from the news.json file
    │
    ├─ Config/
-   │  └─ SiteConfig.cs        ← ODKAZY A NASTAVENIA (formulár, telefón, mapy, paleta, kľúče)
+   │  └─ SiteConfig.cs        ← LINKS AND SETTINGS (form, phone, maps, palette, keys)
    │
-   └─ wwwroot/               ← statické súbory, ktoré idú 1:1 na web
-      ├─ index.html             HTML kostra + fonty + úvodná „načítavacia" obrazovka
-      ├─ css/app.css            CELÝ vzhľad (farby, layout, responzivita)
-      ├─ img/hero-top.png       botanické kvety hore na domove (výrez z pozvánky)
-      ├─ img/hero-bottom.png    botanické kvety dole na domove
-      ├─ favicon.png, icon-192.png   ikonky
+   └─ wwwroot/               ← static files served as-is on the web
+      ├─ index.html             HTML shell + fonts + initial "loading" screen
+      ├─ css/app.css            the ENTIRE look (colours, layout, responsiveness)
+      ├─ img/hero-top.png       botanical flowers at the top of the home page (cut from the invitation)
+      ├─ img/hero-bottom.png    botanical flowers at the bottom of the home page
+      ├─ favicon.png, icon-192.png   icons
       └─ data/
-         ├─ news.json                  ← OBSAH AKTUALÍT (tu pridávaš novinky)
-         └─ HOW-TO-ADD-NEWS.md    návod, ako pridať aktualitu
+         ├─ news.json                  ← NEWS CONTENT (add announcements here)
+         └─ HOW-TO-ADD-NEWS.md    guide on how to add a news item
 ```
 
 ---
 
-## 3. Ako to funguje (v skratke)
+## 3. How it works (in short)
 
-- **Smerovanie (routing):** každá stránka v `Pages/` má navrchu `@page "/adresa"`. Keď
-  zmeníš URL alebo klikneš v menu, `App.razor` zobrazí príslušnú stránku **bez načítania
-  celej stránky** (je to jednostránková aplikácia – SPA).
-- **Spoločná kostra:** `Layout/MainLayout.razor` obaľuje každú stránku – preto je horné
-  menu (`NavBar`) všade rovnaké.
-- **Texty a jazyky:** žiadne texty nie sú „natvrdo" v stránkach. Sú v `Localization/` –
-  `SiteContent.cs` hovorí, *aké* texty existujú, a `ContentSk/Cz/En.cs` obsahujú *konkrétne
-  preklady*. Komponent prečíta text cez `C.NiektoreLole`. Pri prepnutí jazyka sa stránka
-  sama prekreslí a voľba sa uloží do prehliadača (localStorage).
-- **Aktuality:** sú oddelené od kódu v súbore `wwwroot/data/news.json`. Stránka si ho
-  načíta za behu. Vďaka tomu sa dá novinka pridať **bez programovania** (aj priamo na
-  GitHube) – návod je v `wwwroot/data/HOW-TO-ADD-NEWS.md`.
-- **Kontaktný formulár:** nemá server – odosiela cez bezplatnú službu **Web3Forms**, ktorá
-  pošle obsah na mail. Potrebuje kľúč v `SiteConfig.cs` (viď časť 5).
-- **RSVP:** je to odkaz na **Google formulár** (nie je súčasťou kódu). Odpovede si vieš
-  pozerať v prepojenej **Google tabuľke** (zdieľanej len vám) — na web sa nedávajú.
+- **Routing:** every page in `Pages/` has `@page "/address"` at the top. When you change the
+  URL or click in the menu, `App.razor` shows the matching page **without reloading the whole
+  page** (it is a single-page application – SPA).
+- **Shared frame:** `Layout/MainLayout.razor` wraps every page – that is why the top menu
+  (`NavBar`) is the same everywhere.
+- **Texts and languages:** no texts are "hard-coded" in the pages. They live in `Localization/` –
+  `SiteContent.cs` declares *which* texts exist, and `ContentSk/Cz/En.cs` hold the *actual
+  translations*. A component reads a text via `C.SomeProperty`. When the language is switched the
+  page re-renders itself and the choice is saved in the browser (localStorage).
+- **News:** kept separate from the code in `wwwroot/data/news.json`. The site loads it at
+  runtime. Thanks to that a news item can be added **without programming** (even directly on
+  GitHub) – the guide is in `wwwroot/data/HOW-TO-ADD-NEWS.md`.
+- **Contact form:** has no server – it submits via the free **Web3Forms** service, which
+  forwards the content to e-mail. It needs a key in `SiteConfig.cs` (see section 5).
+- **RSVP:** it is a link to a **Google Form** (not part of the code). You can view the
+  responses in the linked **Google Sheet** (shared only with you) — they are not put on the web.
 
 ---
 
-## 4. Kde čo meniť (najčastejšie)
+## 4. Where to change what (most common)
 
-| Čo chcem zmeniť | Kde |
+| What I want to change | Where |
 |---|---|
-| **Slovenské / české / anglické texty** | `SvadbaWeb/Localization/ContentSk.cs` / `ContentCz.cs` / `ContentEn.cs` |
-| **Pridať / upraviť aktualitu** | `SvadbaWeb/wwwroot/data/news.json` (návod vedľa) |
-| **Program svadby (časy)** | sekcia `ProgramDays` v `ContentSk/Cz/En.cs` |
-| **Svadobné menu (jedlá)** | sekcia `MenuCourses` v `ContentSk/Cz/En.cs` |
-| **Odkazy, kontakt, kľúče, paleta** | `SvadbaWeb/Config/SiteConfig.cs` |
-| **Vzhľad / farby / layout** | `SvadbaWeb/wwwroot/css/app.css` |
-| **Položky horného menu** | `SvadbaWeb/Components/NavBar.razor` |
-| **Poradie sekcií na domove** | `SvadbaWeb/Pages/Home.razor` |
+| **Slovak / Czech / English texts** | `SvadbaWeb/Localization/ContentSk.cs` / `ContentCz.cs` / `ContentEn.cs` |
+| **Add / edit a news item** | `SvadbaWeb/wwwroot/data/news.json` (guide next to it) |
+| **Wedding schedule (times)** | the `ProgramDays` section in `ContentSk/Cz/En.cs` |
+| **Wedding menu (dishes)** | the `MenuCourses` section in `ContentSk/Cz/En.cs` |
+| **Links, contact, keys, palette** | `SvadbaWeb/Config/SiteConfig.cs` |
+| **Look / colours / layout** | `SvadbaWeb/wwwroot/css/app.css` |
+| **Top menu items** | `SvadbaWeb/Components/NavBar.razor` |
+| **Order of sections on the home page** | `SvadbaWeb/Pages/Home.razor` |
 
-> Farebná paleta je v `app.css` úplne hore ako CSS premenné (`--burgundy`, `--rust`, …) —
-> zmena jednej hodnoty premaľuje celú stránku.
-
----
-
-## 5. ⚠️ Pred ostrým spustením vyplň v `SvadbaWeb/Config/SiteConfig.cs`
-
-1. **`Web3FormsAccessKey`** — zaregistruj sa zadarmo na <https://web3forms.com> (zadaj mail
-   `ivo6770@gmail.com`), skopíruj *Access Key* a vlož ho sem. Bez neho kontaktný formulár
-   neodošle mail (na stránke sa zobrazí upozornenie).
-2. **`PhoneNumber`** — telefónne číslo pre kontaktné tlačidlo.
-3. **`MessengerUrl`** — odkaz na Messenger (napr. `https://m.me/tvoje.meno`).
-
-*(Odkazy na areál, mapu a ubytovanie sú už vyplnené reálnymi linkami.)*
+> The colour palette is at the very top of `app.css` as CSS variables (`--burgundy`, `--rust`, …) —
+> changing one value repaints the whole site.
 
 ---
 
-## 6. Osobné údaje — čo NEpatrí na web
+## 5. ⚠️ Before going live, fill in `SvadbaWeb/Config/SiteConfig.cs`
 
-Stránka je verejná, takže **čokoľvek v priečinku `wwwroot` si vie stiahnuť ktokoľvek.**
-Preto sú v `.gitignore` a **neverzujú sa** (nedostanú sa na web):
+These must contain real values (already filled in this repo):
 
-- `wwwroot/*.pdf` — napr. vyplnený dotazník od cateringu (sú v ňom telefóny a maily),
-- `wwwroot/*.xlsx` / `*.xls` / `*.csv` — zoznam hostí,
-- pracovná fotka `591772843_*.jpg`.
+1. **`Web3FormsAccessKey`** — register for free at <https://web3forms.com> (use the mail
+   `ivo6770@gmail.com`), copy the *Access Key* and paste it here. Without it the contact form
+   cannot send mail.
+2. **`PhoneNumber`** — the phone number for the contact button.
+3. **`MessengerUrl`** — the Messenger link (e.g. `https://m.me/your.name`).
 
-**Zoznam hostí a stav RSVP drž v Google tabuľke** (prepojenej s formulárom) a zdieľaj ju
-len partnerke — nie na webe.
+*(The venue, map and accommodation links are already filled with real URLs.)*
 
 ---
 
-## 7. Nasadenie na web (GitHub Pages, zadarmo)
+## 6. Personal data — what does NOT belong on the web
 
-Automatické nasadenie cez `.github/workflows/deploy.yml` je **zatiaľ vypnuté**
-(aby sa stránka predčasne nezverejnila). Keď ju budeš chcieť spustiť naživo:
+The site is public, so **anything in the `wwwroot` folder can be downloaded by anyone.**
+That is why these are in `.gitignore` and are **not versioned** (they never reach the web):
 
-1. **Repo nastav na verejné (public).** Bezplatné GitHub Pages fungujú len pre verejné
-   repozitáre. (Súkromné by vyžadovali platený GitHub Pro.)
-2. **Settings → Pages → Source = „GitHub Actions".**
-3. Vo `deploy.yml` odkomentuj dva riadky `push:` / `branches: [ main ]` (návod je priamo
-   v súbore). Odvtedy sa po každom pushi do `main` stránka sama zostaví a nasadí na
-   `https://<tvoj-login>.github.io/<nazov-repa>/`.
+- `wwwroot/*.pdf` — e.g. the filled-in catering questionnaire (it contains phone numbers and e-mails),
+- `wwwroot/*.xlsx` / `*.xls` / `*.csv` — the guest list,
+- the working photo `591772843_*.jpg`.
 
-Žiadny server ani platený hosting netreba.
+**Keep the guest list and RSVP status in the Google Sheet** (linked to the form) and share it
+only with your partner — not on the web.
+
+---
+
+## 7. Deployment to the web (GitHub Pages, free)
+
+Automatic deployment via `.github/workflows/deploy.yml` is **enabled** — every push to `main`
+builds and deploys the site. To make it actually go live:
+
+1. **Set the repo to public.** Free GitHub Pages only works for public repositories.
+   (A private one would require the paid GitHub Pro plan.)
+2. **Settings → Pages → Source = "GitHub Actions".**
+3. From then on, every push to `main` automatically builds and deploys the site to
+   `https://<your-login>.github.io/<repo-name>/`. You can also trigger it manually from the
+   **Actions** tab → *Run workflow*.
+4. After the first successful deploy, enable **Settings → Pages → Enforce HTTPS**.
+
+No server or paid hosting is needed.
